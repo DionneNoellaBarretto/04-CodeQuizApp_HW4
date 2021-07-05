@@ -4,7 +4,7 @@ var clock = document.getElementById('timer');
 var tryAgain = document.getElementById('play-again');
 var allScoresList = document.getElementById('leaders');
 var leaderBoardButton = document.getElementById('highscores');
-var currentQuestionIndex;
+var currentQnIndex;
 var clearScores = document.getElementById('clear');
 var startButton = document.getElementById('start-btn');
 var description = document.getElementById('description');
@@ -15,7 +15,7 @@ var submit = document.getElementById('submit');
 var userInitials = document.getElementById('initials');
 var correctAnsPost = document.getElementById('correctAns');
 var incorrectAnsPost = document.getElementById('incorrectAns');
-var userScore = document.getElementById('user-score');
+var userScore = document.getElementById('userScore');
 var leaderboard = document.getElementById('leaderboard');
 //setting initial time remaining to 90 seconds
 var sec = 75;
@@ -241,14 +241,14 @@ function startQuiz() {
     leaderBoardButton.classList.add('hide');
     // calling the shuffleArray function to randomize the qns defined in the qnArray var uptop
     shuffled = shuffleArray(qnArray);
-    currentQuestionIndex = 0;
+    currentQnIndex = 0;
     qnContainerEl.classList.remove('hide');
     initializeQuestion(shuffled);
 }
 
 // function to randomize question list
 function initializeQuestion(shuffledQuestions) {
-    showQn(shuffledQuestions[currentQuestionIndex]);
+    showQn(shuffledQuestions[currentQnIndex]);
 }
 
 // function to clear out the answer
@@ -257,61 +257,70 @@ function clearoptions() {
 }
 
 // function for listing question with the 4 options as answers
-function showQn(currentQuestionObject) {
-    qnEl.textContent = currentQuestionObject.title;
+function showQn(currentQnObject) {
+    qnEl.textContent = currentQnObject.title;
     clearoptions();
     var ansbtn = document.createElement('ansbtn');
-    ansbtn.textContent = currentQuestionObject.options[0].text;
+    ansbtn.textContent = currentQnObject.options[0].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAns(currentQuestionObject.options[0].correct);
+        selectAns(currentQnObject.options[0].correct);
     })
     var ansbtn = document.createElement('ansbtn');
-    ansbtn.textContent = currentQuestionObject.options[1].text;
+    ansbtn.textContent = currentQnObject.options[1].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAns(currentQuestionObject.options[1].correct);
+        selectAns(currentQnObject.options[1].correct);
     })
     var ansbtn = document.createElement('ansbtn');
-    ansbtn.textContent = currentQuestionObject.options[2].text;
+    ansbtn.textContent = currentQnObject.options[2].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAns(currentQuestionObject.options[2].correct);
+        selectAns(currentQnObject.options[2].correct);
     })
     var ansbtn = document.createElement('ansbtn');
-    ansbtn.textContent = currentQuestionObject.options[3].text;
+    ansbtn.textContent = currentQnObject.options[3].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAns(currentQuestionObject.options[3].correct);
+        selectAns(currentQnObject.options[3].correct);
     })
 }
 
-// validates and counts answers in multiples of 4 since I have 25 questions in the bank for a total of 100 points
+// validates and counts answers in multiples of 4 since I have 25 questions in the var qnArraybank for a total of 100 points. for this to be scalable incase I choose to add more qns I've stated that the cumulative possible score of 100 be divided by the length of the qnArray to determine the points for each qn
 function selectAns(isCorrect) {
+    // if correct increase the score counter by 'score' points 
     if (isCorrect == true) {
-        score += 4;
+        score += (100 / qnArray.length);
+        // console.log(qnArray.length);
+        // console.log(score);
         incorrectAnsPost.classList.add('hide');
         correctAnsPost.classList.remove('hide');
-    } else {
-        sec -= 4;
+    }
+    // lest decrease the timer by "score" seconds where score = (100 / qnArray.length) and in this case its 100/25 which is 4 seconds ( similar to the number of points for each correct qn answered in the 75 second time limit)
+    else {
+        sec -= (100 / qnArray.length);
         correctAnsPost.classList.add('hide');
         incorrectAnsPost.classList.remove('hide');
     }
-    currentQuestionIndex++;
-    if (currentQuestionIndex == shuffled.length) {
-        alert("You have completed all of questions! Click OK for your score!");
+    // once a n is answered increase the counter of the currentQnIndexer to keep track of how many questions have been answered..
+    currentQnIndex++;
+    // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
+    if (currentQnIndex == shuffled.length) {
+        alert("Game Over! You have completed all of questions from the bank! Click OK to learn about your score!");
         endQuiz();
     } else {
-        showQn(shuffled[currentQuestionIndex]);
+        showQn(shuffled[currentQnIndex]);
     }
 }
 
-// ends the quiz/shows and stores score
+// function for when the quiz ends what to hide/display
 function endQuiz() {
+    //its likely that when sec]s is zeroed out the quiz ends which is why the clock/timer the previously displayed elements are all hidden and now the user is shown their score! 
+    // console.log(sec);
     sec = 0;
     clock.classList.add('hide')
     correctAnsPost.classList.add('hide');
@@ -319,11 +328,21 @@ function endQuiz() {
     qnContainerEl.classList.add('hide');
     scores.classList.remove('hide');
     leaderBoardButton.classList.remove('hide');
-    userScore.textContent = 'Your total was ' + score + ' out of 100!';
+    //this is all that the user should be shown 
+    userScore.textContent = "You've scored a" + score + "out of a possible total of 100!";
 }
 
 
-// scores history saved
+
+// clear score history listener
+clearScores.addEventListener('click', clearScoresHistory)
+
+// "try again" listener
+tryAgain.addEventListener('click', function() {
+    startAgain();
+})
+
+// saved score history listener
 submit.addEventListener('click', function(event) {
     event.preventDefault();
     showScoresHistory();
@@ -348,23 +367,16 @@ function startAgain() {
     startQuiz();
 }
 
-// "try again" listener
-tryAgain.addEventListener('click', function() {
-    startAgain();
-})
-
-// clear/save/show scores
+// browser local storage for scores is cleared
 function clearScoresHistory() {
     //   localStorage.removeItem('scoresToKeep');
     localStorage.clear("scoresToKeep");
     localStorage.clear("namesToKeep");
     localStorage.clear("listOfLeaders");
 
-
     //   localStorage.setItem("");
     allScoresList.innerHTML = "";
 }
-clearScores.addEventListener('click', clearScoresHistory)
 
 function showScoresHistory() {
     namesToKeep = userInitials.value;
