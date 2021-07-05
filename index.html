@@ -8,33 +8,62 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Title of the page -->
     <title>Coding Quiz</title>
-    <!-- relationship with style sheet -->
-    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <!--link to style sheet-->
+    <link rel="stylesheet" href="./style.css" />
 </head>
+<br>
+<!-- header like an about me  -->
+<h1 class="heading">Testing your JavaScript Knowledge!</h1>
 
 <body>
-    <header>
-        <section> All time High Scores </section>
-        <section> Timer </section>
-    </header>
+    <div class="score-board">
+        <div class="high-scores">
+            <button class="btn" id="high-scores">Scores</button>
+        </div>
+        <div id="rightAns" class="hide">Correct Answer!</div>
+        <div id="wrongAns" class="hide">Incorrect Answer!</div>
+        <div class="timer">
+            <h1 id="timer">Time Remaining: </h1>
+        </div>
+    </div>
+    <div class="question-card">
+        <div id="answer-return"></div>
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+            </div>
+        </div>
 
-    <main>
-        <section>
-            Question
-        </section>
-        <section>
-            Options
-        </section>
-        <h1>---------------------------------</h1>
-        <section>
-            Answer Justification
-        </section>
-    </main>
-    <!-- linking javascript sheet to html -->
-    <script src="./Assets/js/script.js"></script>
+        <p id="description"> This quiz is a quick knowledge check for your understanding on JavaScript basics.
+            <br>
+            <br> Click "Start" to begin quiz and answer questions until the timer runs out!
+            <br> Each wrong answers result in a penalty of -10 seconds from the 'Time Remaining'!
+            <br>
+        </p>
+        <br>
+
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+        </div>
+    </div>
+
+    <div class="score hide" id="score">
+        <h1 id="user-score"></h1>
+        <form action=" " id="form">
+            <input type="text" name="data" id="initials" placeholder="Enter your Name or Initials">
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+    <div class="container hide" id="leaderboard">
+        <h1>Top Scores</h1>
+        <ul id="leaders">
+        </ul>
+        <button class="btn" id="clear">Clear</button>
+        <button class="btn" id="play-again">Try Again</button>
+    </div>
 </body>
+<!-- link to javascript file -->
+<script src="./script.js"></script>
 
 </html>

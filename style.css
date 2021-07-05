@@ -1,0 +1,210 @@
+/* universal selector */
+
+*,
+*::before,
+*::after {
+    font-family: cursive;
+}
+
+
+/* element selectors */
+
+body {
+    padding: 10;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-color: rgb(151, 212, 240);
+}
+
+p {
+    color: rgb(71, 70, 70);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+
+/* class &id  selectors */
+
+.heading {
+    color: rgb(14, 13, 13);
+    align-content: center;
+}
+
+#rightAns {
+    color: rgb(32, 184, 32);
+    font-size: 40px;
+    align-content: center;
+}
+
+#wrongAns {
+    color: rgb(196, 36, 36);
+    font-size: 40px;
+    align-content: center;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 10px;
+    width: 40%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.high-scores {
+    padding: 3px;
+    margin: 0;
+    height: 40px;
+}
+
+#high-scores:hover {
+    border-color: rgb(248, 224, 7);
+}
+
+#high-scores {
+    background-color: rgb(219, 129, 241);
+    font-size: 20px;
+    height: 40px;
+    color: rgb(17, 17, 17);
+    border: solid 2px white;
+    border-style: double;
+    border-radius: 70%;
+    font-weight: bold;
+}
+
+.timer {
+    padding: 2px;
+    margin: 0;
+    text-align: right;
+    height: 40px;
+}
+
+.timer h1 {
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    border: solid 2px rgb(228, 110, 165);
+    border-radius: 70%;
+    color: rgb(7, 7, 7);
+    background-color: rgb(165, 182, 238);
+    cursor: default;
+}
+
+.question-card {
+    width: 800px;
+    max-width: 80%;
+    max-height: 30%;
+}
+
+#question {
+    color: rgb(19, 18, 18);
+    font-size: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 10px;
+    padding-top: 10px;
+}
+
+.btn {
+    background-color: rgb(85, 148, 243);
+    border: 2px solid rgb(189, 183, 183);
+    border-style: dotted;
+    padding: 5px, 10px;
+    color: rgb(15, 54, 230);
+    outline: none;
+    border-radius: 80%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn text {
+    text-align: center;
+    font-size: 20px;
+}
+
+.answer {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 100%;
+}
+
+.btn:hover {
+    border-color: rgb(221, 74, 226);
+}
+
+#answer-buttons {
+    height: 200px;
+}
+
+.start-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.score {
+    align-items: center;
+}
+
+.score h1 {
+    color: rgb(250, 244, 244);
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.score form {
+    align-items: center;
+}
+
+#leaderboard {
+    text-align: center;
+    justify-content: space-between;
+}
+
+#leaderboard h1 {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(19, 18, 18);
+    border-bottom: 5px double rgb(245, 214, 214);
+    padding-bottom: 10px;
+}
+
+#leaderboard button {
+    font-size: 20px;
+    height: 50px;
+    width: 200px;
+    height: 100px;
+    margin: 0 60px;
+}
+
+#leaders {
+    color: rgb(7, 7, 7);
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px;
+    padding-bottom: 30px;
+}
