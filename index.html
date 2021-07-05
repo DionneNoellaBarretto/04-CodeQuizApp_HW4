@@ -8,60 +8,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coding Quiz</title>
+    <title>Code Quiz</title>
+    <!--link to princess sofia google font sheet-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
     <!--link to style sheet-->
     <link rel="stylesheet" href="./style.css" />
 </head>
 <br>
 <!-- header like an about me  -->
-<h1 class="heading">Testing your JavaScript Knowledge!</h1>
+<h1 class="heading">A timed quiz to test your JavaScript fundamentals</h1>
 
 <body>
-    <div class="score-board">
-        <div class="high-scores">
-            <button class="btn" id="high-scores">Scores</button>
+    <section class="scoreboard">
+        <div class="highscores">
+            <button class="btn" id="highscores">Leaderboard!</button>
         </div>
-        <div id="rightAns" class="hide">Correct Answer!</div>
-        <div id="wrongAns" class="hide">Incorrect Answer!</div>
+        <div id="correctAns" class="hide">Correct Answer!</div>
+        <div id="incorrectAns" class="hide">Incorrect Answer!</div>
         <div class="timer">
             <h1 id="timer">Time Remaining: </h1>
         </div>
-    </div>
-    <div class="question-card">
-        <div id="answer-return"></div>
-        <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-            </div>
+    </section>
+    <!-- main area to display questions and answers + results  -->
+    <main class="qn-ans-section">
+        <!-- answer result shared with user -->
+        <div id="ans-return"></div>
+        <div id="qn-section" class="hide">
+            <div id="qn">Question</div>
+            <div id="ans-buttons" class="btn-grid"></div>
         </div>
-
-        <p id="description"> This quiz is a quick knowledge check for your understanding on JavaScript basics.
+        <!-- this span styles the "25 questions", "-10 second" and '75 second' texts in the following sentences -->
+        <p id="description"> This quiz of <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 questions </span> is a quick knowledge check for your understanding on JavaScript basics.
             <br>
-            <br> Click "Start" to begin quiz and answer questions until the timer runs out!
-            <br> Each wrong answers result in a penalty of -10 seconds from the 'Time Remaining'!
-            <br>
-        </p>
+            <br> Each wrong answers results in a penalty of <span style="color: rgb(153, 18, 18); text-decoration:underline; text-decoration-style: dotted"> -10 seconds </span> from the 'Time Remaining '! <br>
+            <br> Click "Start" below to begin quiz and answer questions until the <strong>'75 second'</strong> timer runs out! </p>
         <br>
-
-        <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start</button>
-        </div>
-    </div>
-
+        <div class="controls"><button id="start-btn" class="start-btn btn" style="text-decoration: underline">Start</button></div>
+    </main>
+    <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
     <div class="score hide" id="score">
-        <h1 id="user-score"></h1>
-        <form action=" " id="form">
-            <input type="text" name="data" id="initials" placeholder="Enter your Name or Initials">
-            <button id="submit">Submit</button>
-        </form>
+        <h1 id="user-scores"></h1>
+        <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter your Name or Initials"><button id="submit ">Submit</button></form>
     </div>
     <div class="container hide" id="leaderboard">
         <h1>Top Scores</h1>
-        <ul id="leaders">
-        </ul>
-        <button class="btn" id="clear">Clear</button>
-        <button class="btn" id="play-again">Try Again</button>
-    </div>
+        <ol id="leaders"></ol><button class="btn" id="clear">Clear</button><button class="btn" id="play-again">Try Again</button></div>
 </body>
 <!-- link to javascript file -->
 <script src="./script.js"></script>
