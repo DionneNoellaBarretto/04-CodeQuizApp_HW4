@@ -20,9 +20,10 @@ var leaderboard = document.getElementById('leaderboard');
 //setting initial time remaining to 90 seconds
 var sec = 75;
 var score = 0;
-var shuffled = [];
+//empty string/ array
 var namesToKeep = "";
 var scoresToKeep = [];
+var shuffled = [];
 //qn answer array ( for the qn bank referenced https://www.guru99.com/javascript-interview-questions-answers.html & https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function )
 var qnArray = [{
         title: 'JavaScript only runs if it is stored in its own .js file.',
@@ -246,9 +247,9 @@ function startQuiz() {
     initializeQuestion(shuffled);
 }
 
-// function to randomize question list
-function initializeQuestion(shuffledQuestions) {
-    showQn(shuffledQuestions[currentQnIndex]);
+// function to randomize/shuffle question list
+function initializeQuestion(shuffledQns) {
+    showQn(shuffledQns[currentQnIndex]);
 }
 
 // function to clear out the answer
@@ -349,7 +350,7 @@ leaderBoardButton.addEventListener('click', function() {
     clock.classList.add('hide')
     startButton.classList.add('hide');
     description.classList.add('hide');
-    questionContainerEl.classList.add('hide');
+    qnContainerEl.classList.add('hide');
     scores.classList.add('hide');
     showScoresOriginal();
 });
