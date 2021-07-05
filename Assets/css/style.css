@@ -21,8 +21,10 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    /* a gradient backgorund using 4 colors */
-    background-image: linear-gradient(rgb(189, 31, 31), rgb(32, 32, 211), rgb(37, 199, 37), rgb(226, 226, 31));
+    /* incase a browser doesnt support gradients */
+    background-color: lavenderblush;
+    /* a gradient backgorund using 4 colors and with a diagonal gradation*/
+    background-image: linear-gradient(to bottom right, rgb(247, 84, 84), rgb(107, 107, 247), rgb(96, 250, 96), rgb(245, 245, 84));
 }
 
 
@@ -43,24 +45,32 @@ p {
 /* formatting the static header banner up top */
 
 .heading {
-    color: rgb(94, 92, 92);
+    color: rgb(54, 53, 53);
     align-content: center;
     justify-content: center;
+    /* overwriting the font family to use another google font from stylesheet*/
+    font-family: 'Otomanopee One', sans-serif;
 }
 
 
 /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
 
 #correctAns {
-    color: rgb(32, 184, 32);
+    color: rgb(6, 126, 6);
     font-size: 40px;
     align-content: center;
+    font-family: 'Yomogi', cursive;
+    font-style: italic;
+    font-weight: bolder;
 }
 
 #incorrectAns {
     color: rgb(196, 36, 36);
     font-size: 40px;
+    font-family: 'Yomogi', cursive;
     align-content: center;
+    font-style: italic;
+    font-weight: bolder;
 }
 
 
@@ -99,7 +109,7 @@ p {
     padding: 3px;
     margin: 2;
     text-align: left;
-    height: 40px;
+    height: 35px;
     color: red;
 }
 
@@ -126,6 +136,7 @@ p {
     font-size: 30px;
     text-align: center;
     flex-wrap: wrap;
+    font-family: 'Indie Flower', cursive;
 }
 
 .btn-grid {
@@ -158,6 +169,8 @@ p {
     padding-top: 30px;
     text-align: center;
     font-size: 100%;
+    font-family: 'Yomogi', cursive;
+    font-weight: bold;
 }
 
 .btn:hover {

@@ -2,7 +2,7 @@
 var scores = document.getElementById('score');
 var clock = document.getElementById('timer');
 var tryAgain = document.getElementById('play-again');
-var allScoresList = document.getElementById('leaders');
+var allScoresList = document.getElementById('HighScorers');
 var leaderBoardButton = document.getElementById('highscores');
 var currentQnIndex;
 var clearScores = document.getElementById('clear');
@@ -308,6 +308,7 @@ function selectAns(isCorrect) {
     }
     // once a n is answered increase the counter of the currentQnIndexer to keep track of how many questions have been answered..
     currentQnIndex++;
+    //console.log(currentQnIndex);
     // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
         alert("Game Over! You have completed all of questions from the bank! Click OK to learn about your score!");
@@ -321,6 +322,7 @@ function selectAns(isCorrect) {
 function endQuiz() {
     //its likely that when sec]s is zeroed out the quiz ends which is why the clock/timer the previously displayed elements are all hidden and now the user is shown their score! 
     // console.log(sec);
+    //console.log(score);
     sec = 0;
     clock.classList.add('hide')
     correctAnsPost.classList.add('hide');
@@ -339,11 +341,22 @@ clearScores.addEventListener('click', clearScoresHistory)
 
 // "try again" listener
 tryAgain.addEventListener('click', function() {
-    startAgain();
+    restartQuiz();
 })
+
+// listener for leaderboard button being clicked to display on scoreshistory section and hide everything else
+leaderBoardButton.addEventListener('click', function() {
+    clock.classList.add('hide')
+    startButton.classList.add('hide');
+    description.classList.add('hide');
+    questionContainerEl.classList.add('hide');
+    scores.classList.add('hide');
+    showScoresOriginal();
+});
 
 // saved score history listener
 submit.addEventListener('click', function(event) {
+    //preventing an unnecessary browser refresh
     event.preventDefault();
     showScoresHistory();
 })
@@ -358,36 +371,25 @@ function addScores(initials, score) {
 }
 
 // function to restart quiz with a 75 second initialized (reset) timer
-function startAgain() {
+function restartQuiz() {
     clock.classList.remove('hide')
-        //if not set then the last known value of the timer is where the quiz will resume from 
-    sec = 75;
+    sec = 60;
     score = 0;
     leaderboard.classList.add('hide');
     startQuiz();
-}
-
-// browser local storage for scores is cleared
-function clearScoresHistory() {
-    //   localStorage.removeItem('scoresToKeep');
-    localStorage.clear("scoresToKeep");
-    localStorage.clear("namesToKeep");
-    localStorage.clear("listOfLeaders");
-
-    //   localStorage.setItem("");
-    allScoresList.innerHTML = "";
 }
 
 function showScoresHistory() {
     namesToKeep = userInitials.value;
     addScores(namesToKeep, score);
     scores.classList.add('hide');
+    //unhiding the leaderboard
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
     var displayScores = JSON.parse(localStorage.getItem("scoresToKeep"));
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
-        newLeader.setAttribute("class", "listOfLeaders");
+        newLeader.setAttribute("class", "listOfHighScorers");
         newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }
@@ -401,15 +403,20 @@ function showScoresOriginal() {
     var displayScores = JSON.parse(localStorage.getItem("scoresToKeep"));
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
-        newLeader.setAttribute("class", "listOfLeaders");
+        newLeader.setAttribute("class", "listOfHighScorers");
         newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }
 }
-leaderBoardButton.addEventListener('click', function() {
-    startButton.classList.add('hide');
-    description.classList.add('hide');
-    qnContainerEl.classList.add('hide');
-    scores.classList.add('hide');
-    showScoresOriginal();
-});
+
+
+// browser local storage for scores is cleared
+function clearScoresHistory() {
+    //   localStorage.removeItem('scoresToKeep');
+    localStorage.clear("scoresToKeep");
+    localStorage.clear("namesToKeep");
+    localStorage.clear("listOfHighScorers");
+
+    //   localStorage.setItem("");
+    allScoresList.innerHTML = "";
+}
