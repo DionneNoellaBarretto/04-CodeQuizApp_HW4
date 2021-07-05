@@ -314,7 +314,7 @@ function selectAns(isCorrect) {
     //console.log(currentQnIndex);
     // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
-        alert("Game Over! You have completed all of questions from the bank! Click OK to learn about your score!");
+        alert("Game Over! You have completed all of questions from the bank! Click Okay to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
         endQuiz();
     } else {
         showQn(shuffled[currentQnIndex]);
@@ -376,7 +376,7 @@ function addScores(initials, score) {
 // function to restart quiz with a 75 second initialized (reset) timer
 function restartQuiz() {
     clock.classList.remove('hide')
-    sec = 60;
+    sec = 75;
     score = 0;
     leaderboard.classList.add('hide');
     startQuiz();
