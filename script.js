@@ -1,8 +1,10 @@
 // defining all variables
 var scores = document.getElementById('score');
 var clock = document.getElementById('timer');
-var userScore = document.getElementById('user-score');
-var leaderboard = document.getElementById('leaderboard');
+var tryAgain = document.getElementById('play-again');
+var allScoresList = document.getElementById('leaders');
+var leaderBoardButton = document.getElementById('highscores');
+var currentQuestionIndex;
 var clearScores = document.getElementById('clear');
 var startButton = document.getElementById('start-btn');
 var description = document.getElementById('description');
@@ -11,12 +13,10 @@ var qnEl = document.getElementById('qn');
 var ansButtonsEl = document.getElementById('ans-buttons');
 var submit = document.getElementById('submit');
 var userInitials = document.getElementById('initials');
-var tryAgain = document.getElementById('play-again');
-var allScoresList = document.getElementById('leaders');
-var leaderBoardButton = document.getElementById('highscores');
-var currentQuestionIndex;
 var correctAnsPost = document.getElementById('correctAns');
 var incorrectAnsPost = document.getElementById('incorrectAns');
+var userScore = document.getElementById('user-score');
+var leaderboard = document.getElementById('leaderboard');
 //setting initial time remaining to 90 seconds
 var sec = 75;
 var score = 0;
@@ -210,15 +210,15 @@ var qnArray = [{
 // start button listener triggered upon click
 startButton.addEventListener('click', startQuiz);
 
-// function to randomize a question from the questions array
-function shuffleArray(passedArray) {
-    for (var i = 0; i < passedArray.length; i++) {
-        var rand = Math.floor(Math.random() * passedArray.length);
-        var temp = passedArray[i];
-        passedArray[i] = passedArray[rand];
-        passedArray[rand] = temp;
+// function to randomize a question from the questions array serving as input ( total of 25 questions)
+function shuffleArray(inputArray) {
+    for (var i = 0; i < inputArray.length; i++) {
+        var rand = Math.floor(Math.random() * inputArray.length);
+        var temp = inputArray[i];
+        inputArray[i] = inputArray[rand];
+        inputArray[rand] = temp;
     }
-    return passedArray;
+    return inputArray;
 }
 
 // quiz timer function
@@ -233,31 +233,31 @@ function timer() {
     }, 1000);
 }
 
-
-// start button/hide elements when quiz starts
+// when start button is clicked, hide all other elements apart from the shuffled random question and its options 
 function startQuiz() {
     timer();
     startButton.classList.add('hide');
     description.classList.add('hide');
     leaderBoardButton.classList.add('hide');
+    // calling the shuffleArray function to randomize the qns defined in the qnArray var uptop
     shuffled = shuffleArray(qnArray);
     currentQuestionIndex = 0;
     qnContainerEl.classList.remove('hide');
     initializeQuestion(shuffled);
 }
 
-// randomized question listing
+// function to randomize question list
 function initializeQuestion(shuffledQuestions) {
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    showQn(shuffledQuestions[currentQuestionIndex]);
 }
 
-// answer clearing
+// function to clear out the answer
 function clearoptions() {
     ansButtonsEl.innerHTML = "";
 }
 
-// question progression
-function showQuestion(currentQuestionObject) {
+// function for listing question with the 4 options as answers
+function showQn(currentQuestionObject) {
     qnEl.textContent = currentQuestionObject.title;
     clearoptions();
     var ansbtn = document.createElement('ansbtn');
@@ -265,21 +265,21 @@ function showQuestion(currentQuestionObject) {
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAnswer(currentQuestionObject.options[0].correct);
+        selectAns(currentQuestionObject.options[0].correct);
     })
     var ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQuestionObject.options[1].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAnswer(currentQuestionObject.options[1].correct);
+        selectAns(currentQuestionObject.options[1].correct);
     })
     var ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQuestionObject.options[2].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
-        selectAnswer(currentQuestionObject.options[2].correct);
+        selectAns(currentQuestionObject.options[2].correct);
     })
     var ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQuestionObject.options[3].text;
@@ -291,7 +291,7 @@ function showQuestion(currentQuestionObject) {
 }
 
 // validates and counts answers in multiples of 4 since I have 25 questions in the bank for a total of 100 points
-function selectAnswer(isCorrect) {
+function selectAns(isCorrect) {
     if (isCorrect == true) {
         score += 4;
         incorrectAnsPost.classList.add('hide');
@@ -306,7 +306,7 @@ function selectAnswer(isCorrect) {
         alert("You have completed all of questions! Click OK for your score!");
         endQuiz();
     } else {
-        showQuestion(shuffled[currentQuestionIndex]);
+        showQn(shuffled[currentQuestionIndex]);
     }
 }
 

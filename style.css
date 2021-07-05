@@ -63,6 +63,9 @@ p {
     align-content: center;
 }
 
+
+/* formatting for the hidden scoreboard visbile once user has entered a score upon completing the quiz/running out of time or clicking the 'leaderboard' button */
+
 .scoreboard {
     display: flex;
     flex-direction: row;
@@ -70,16 +73,6 @@ p {
     width: 40%;
     height: auto;
     justify-content: space-between;
-}
-
-.highscores {
-    padding: 30px;
-    margin: 10;
-    height: 40px;
-}
-
-#highscores:hover {
-    border-color: rgb(86, 7, 122);
 }
 
 #highscores {
@@ -90,6 +83,16 @@ p {
     border: dotted 2px rgb(231, 235, 4);
     border-radius: 20%;
     font-weight: bold;
+}
+
+.highscores {
+    padding: 30px;
+    margin: 10;
+    height: 40px;
+}
+
+#highscores:hover {
+    border-color: rgb(86, 7, 122);
 }
 
 .timer {
@@ -133,6 +136,9 @@ p {
     padding-top: 10px;
 }
 
+
+/* formatting of the start button and the answer options */
+
 .btn {
     background-color: rgb(238, 122, 122);
     border: 2px dotted rgb(143, 4, 235);
@@ -155,7 +161,7 @@ p {
 }
 
 .btn:hover {
-    border-color: rgb(221, 74, 226);
+    border-color: rgb(74, 226, 112);
 }
 
 #ans-buttons {
@@ -183,7 +189,7 @@ p {
 }
 
 .score h1 {
-    color: rgb(250, 244, 244);
+    color: rgb(250, 8, 238);
     font-size: 30px;
     font-weight: bold;
     padding-bottom: 10px;
@@ -191,6 +197,8 @@ p {
 
 .score form {
     align-items: center;
+    width: 2500px;
+    height: 100px;
 }
 
 #leaderboard {
@@ -208,8 +216,7 @@ p {
 
 #leaderboard button {
     font-size: 20px;
-    height: 50px;
-    width: 200px;
+    width: 250px;
     height: 100px;
     margin: 0 60px;
 }
