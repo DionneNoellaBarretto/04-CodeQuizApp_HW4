@@ -112,8 +112,8 @@ p {
     padding: 3px;
     margin: 2;
     text-align: left;
-    height: 35px;
-    color: red;
+    /* if any lesser then the question will overflow into the timer block */
+    height: 40px;
 }
 
 .timer h1 {
