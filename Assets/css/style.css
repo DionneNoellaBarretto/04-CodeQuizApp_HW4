@@ -74,9 +74,9 @@ p {
 }
 
 
-/* formatting for the hidden scoreboard visbile once user has entered a score upon completing the quiz/running out of time or clicking the 'leaderboard' button */
+/* formatting for the hidden gamestats  visbile once user has entered a score upon completing the quiz/running out of time or clicking the 'leaderboard' button */
 
-.scoreboard {
+.gamestats {
     display: flex;
     flex-direction: row;
     padding: 20px 10px;
@@ -99,6 +99,9 @@ p {
     padding: 30px;
     margin: 10;
     height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 #highscores:hover {

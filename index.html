@@ -21,10 +21,7 @@
 <h1 class="heading">A timed quiz to test your JavaScript fundamentals</h1>
 
 <body>
-    <section class="scoreboard">
-        <div class="highscores">
-            <button class="btn" id="highscores">Leaderboard!</button>
-        </div>
+    <section class="gamestats">
         <div id="correctAns" class="hide">Correct Answer!</div>
         <div id="incorrectAns" class="hide">Incorrect Answer!</div>
         <div class="timer">
@@ -48,6 +45,7 @@
         <div class="controls"><button id="start-btn" class="start-btn btn" style="text-decoration: underline">Start</button></div>
     </main>
     <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
+    <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
     <div class="score hide" id="score">
         <h1 id="userScore"></h1>
         <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter Name or Initials"><button id="submit ">Submit</button></form>
