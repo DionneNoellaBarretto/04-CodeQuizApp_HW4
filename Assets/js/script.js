@@ -18,7 +18,7 @@ var incorrectAnsPost = document.getElementById('incorrectAns');
 var userScore = document.getElementById('userScore');
 var leaderboard = document.getElementById('leaderboard');
 //setting initial time remaining to 90 seconds
-var sec = 75;
+var sec = 100;
 var score = 0;
 //empty string/ array
 var namesToKeep = "";
@@ -207,7 +207,6 @@ var qnArray = [{
 
 ];
 
-
 // start button listener triggered upon click
 startButton.addEventListener('click', startQuiz);
 
@@ -305,7 +304,7 @@ function selectAns(isCorrect) {
     }
     // lest decrease the timer by "score" seconds where score = (100 / qnArray.length) and in this case its 100/25 which is 4 seconds ( similar to the number of points for each correct qn answered in the 75 second time limit)
     else {
-        sec -= (100 / qnArray.length);
+        sec -= 5;
         correctAnsPost.classList.add('hide');
         incorrectAnsPost.classList.remove('hide');
     }
@@ -314,7 +313,7 @@ function selectAns(isCorrect) {
     //console.log(currentQnIndex);
     // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
-        alert("Game Over! You have completed all of questions from the bank! Click Okay to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
+        alert("Game Over! You have completed all of questions from the bank! Click OK to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
         endQuiz();
     } else {
         showQn(shuffled[currentQnIndex]);
@@ -323,7 +322,7 @@ function selectAns(isCorrect) {
 
 // function for when the quiz ends what to hide/display
 function endQuiz() {
-    //its likely that when sec]s is zeroed out the quiz ends which is why the clock/timer the previously displayed elements are all hidden and now the user is shown their score! 
+    //its likely that when sec is zeroed out the quiz ends which is why the clock/timer the previously displayed elements are all hidden and now the user is shown their score! 
     // console.log(sec);
     //console.log(score);
     sec = 0;
@@ -335,6 +334,7 @@ function endQuiz() {
     leaderBoardButton.classList.remove('hide');
     //this is all that the user should be shown 
     userScore.textContent = "You've scored a" + score + "out of a possible total of 100!";
+    showScoresHistory();
 }
 
 
@@ -373,10 +373,10 @@ function addScores(initials, score) {
     localStorage.setItem('scoresToKeep', JSON.stringify(scoresToKeep));
 }
 
-// function to restart quiz with a 75 second initialized (reset) timer
+// function to restart quiz with a 100 second initialized (reset) timer
 function restartQuiz() {
     clock.classList.remove('hide')
-    sec = 75;
+    sec = 100;
     score = 0;
     leaderboard.classList.add('hide');
     startQuiz();

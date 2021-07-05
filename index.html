@@ -18,7 +18,7 @@
 </head>
 <br>
 <!-- header like an about me  -->
-<h1 class="heading">A timed quiz to test your JavaScript fundamentals</h1>
+<h1 class="heading">JavaScript Fundamentals Timed Quiz</h1>
 
 <body>
     <section class="gamestats">
@@ -37,25 +37,25 @@
             <div id="qn">Question</div>
             <div id="ans-buttons" class="btn-grid"></div>
         </div>
-        <!-- this span styles the "25 questions", "-10 second" and '75 second' texts in the following sentences -->
-        <p id="description"> This quiz of <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 questions </span> is a quick knowledge check for your understanding on JavaScript basics.
+        <!-- this span styles the "25 questions ", "-10 second " and '75 second' texts in the following sentences -->
+        <p id="description"> This <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 question </span> quiz is a quick JavaScript basics knowledge check.
             <br>
-            <br> Each wrong answers results in a penalty of <span style="color: rgb(153, 18, 18); text-decoration:underline; text-decoration-style: dotted"> -10 seconds </span> from the 'Time Remaining '! <br>
-            <br> Click "Start" below to begin quiz and answer questions until the <strong>'75 second'</strong> timer runs out! </p>
+            <br> Each wrong answers results in a penalty of <span style="color: rgb(153, 18, 18); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
+            <br> Click <span style="text-decoration: underline">"Start "</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
         <br>
         <div class="controls"><button id="start-btn" class="start-btn btn" style="text-decoration: underline">Start</button></div>
     </main>
     <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
     <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
-    <div class="score hide" id="score">
-        <h1 id="userScore"></h1>
-        <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter Name or Initials"><button id="submit ">Submit</button></form>
+    <div class="score hide" id="score ">
+        <h1 id="userScore "></h1>
+        <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter Name or Initials"><button id="submit">Submit</button></form>
     </div>
     <div class="container hide" id="leaderboard">
         <h1>Top Scores</h1>
         <ol id="HighScorers"></ol><button class="btn" id="clear">Clear</button><button class="btn" id="play-again">Try Again</button></div>
 </body>
 <!-- link to javascript file -->
-<script src="./Assets/js/script.js"></script>
+<script src="./Assets/js/script.js "></script>
 
 </html>
