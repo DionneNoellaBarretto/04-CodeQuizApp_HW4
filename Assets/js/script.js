@@ -243,7 +243,9 @@ function startQuiz() {
     // calling the shuffleArray function to randomize the qns defined in the qnArray var uptop
     shuffled = shuffleArray(qnArray);
     currentQnIndex = 0;
+    //unhiding the timer and the qncontainerelement
     qnContainerEl.classList.remove('hide');
+    clock.classList.remove('hide');
     initializeQuestion(shuffled);
 }
 
