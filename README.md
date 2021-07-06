@@ -30,7 +30,7 @@ UNC Boot Camp Submission: 🗂️ [Github Repository](https://github.com/DionneN
 Starting Screen-Desktop View
 <img src= "./Assets/images/StartingScreen.png">
 QuestionScreen on Desktop/Laptop Screen
-<img src="./Assets/images/QuestionsScreen_100sectimer.png">
+<img src="./Assets/images/DesktopScreen.png">
 QuestionScreen on Tablet Screen
 <img src="./Assets/images/TabletScreen.png">
 QuestionScreen on Mobile Screen

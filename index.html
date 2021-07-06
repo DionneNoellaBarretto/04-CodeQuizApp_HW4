@@ -12,7 +12,7 @@
     <!--link to princess sofia, ontomanopee one, yomogi and indie flower google font sheet-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Otomanopee+One&family=Princess+Sofia&family=Yomogi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Otomanopee+One&family=Princess+Sofia&family=Yomogi&family=Caesar+Dressing&display=swap" rel="stylesheet">
     <!--link to style sheet-->
     <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
@@ -39,27 +39,36 @@
         <div id="ans-return"></div>
         <div id="qn-section" class="hide">
             <div id="qn">Question</div>
+            <br>
+            <br>
             <div id="ans-buttons" class="btn-grid"></div>
         </div>
         <!-- this span styles the "25 questions ", "-10 second " and '75 second' texts in the following sentences -->
         <p id="description"> This <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 question </span> quiz is a quick JavaScript basics knowledge check.
             <br>
             <br> Each wrong answers results in a penalty of <span style="color: rgb(206, 32, 32); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
-            <br> Click <span style="text-decoration: underline">"Start "</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
+            <br> Click <span style="text-decoration: underline">"Start"</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
         <br>
         <div class="controls"><button id="startBtn" class="startBtn btn" style="text-decoration: underline">Start</button></div>
     </main>
     <br>
     <br>
     <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
-    <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
-    <div class="score hide" id="score">
-        <h1 id="userScore"></h1>
-        <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter Name or Initials"><button id="submit">Submit</button></form>
-    </div>
-    <div class="container hide" id="leaderboard">
-        <h1>Top Scores</h1>
-        <ol id="HighScorers"></ol><button class="btn" id="clear">Clear</button><button class="btn" id="tryAgain">Play Again</button></div>
+    <section class="finalstats">
+        <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
+         <!-- 2 classes are used here for this div section -->
+        <div class="score hide" id="score">
+            <h1 id="userScore"></h1>
+             <!-- enforcing a minimum of 3 letters for the name/initial input by the user/player (Ref: https://code.tutsplus.com/tutorials/form-input-validation-using-only-html5-and-regex--cms-33095 / https://stackoverflow.com/questions/17899107/how-to-validate-a-letter-and-whitespace-only-input-via-javascript-regular-expres) -->
+            <form action=" " id="form"><input type="text" placeholder="Enter your Name or Initials" autofocus name="data" id="initials" pattern="[a-zA-Z0-9]+"><button id="submit">Submit</button></form>
+        </div>
+        <div class="container hide" id="leaderboard">
+            <h1>Top Scores</h1>
+            <ol id="HighScorers">            </ol>
+            <button class="btn" id="clear">Clear</button>
+            <button class="btn" id="tryAgain">Play Again</button>
+        </div>
+    </section>
 </body>
 <!-- link to javascript file -->
 <script src="./Assets/js/script.js"></script>

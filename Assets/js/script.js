@@ -24,6 +24,7 @@ var score = 0;
 var namesToKeep = "";
 var scoresToKeep = [];
 var shuffled = [];
+var input = document.querySelectorAll('input');
 //qn answer array ( for qns referenced sources are https://www.guru99.com/javascript-interview-questions-answers.html & https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function )
 var qnArray = [{
         title: 'JavaScript only runs if it is stored in its own .js file.',
@@ -207,6 +208,7 @@ var qnArray = [{
 
 ];
 
+
 // start button listener triggered upon click
 startButton.addEventListener('click', startQuiz);
 
@@ -333,9 +335,12 @@ function endQuiz() {
     qnContainerEl.classList.add('hide');
     scores.classList.remove('hide');
     leaderBoardButton.classList.remove('hide');
+    userInitials.classList.remove('hide');
+    userScore.classList.remove('hide');
     //this is all that the user should be shown 
-    userScore.textContent = "You've scored a total of" + score + "out of a possible 100!";
-    showScoresHistory();
+    userScore.textContent = "You've scored " + score + " out of a possible 100!";
+    //calls the input styling function
+    inputstyle();
 }
 
 // "Play Again" listener to call the restart quiz function whihc inturn calls the start quiz function
@@ -369,6 +374,14 @@ submit.addEventListener('click', function(event) {
     showScoresHistory();
 })
 
+ //sets the input field length in the initials form to be as large as the placeholder text length (http://jsfiddle.net/KU5kN/)
+ function inputstyle(){
+for(i=0; i<input.length; i++){
+    input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
+}
+}
+
+//scoring logic
 function addScores(initials, score) {
     var newScore = {
         initials: initials,
@@ -378,6 +391,7 @@ function addScores(initials, score) {
     localStorage.setItem('scoresToKeep', JSON.stringify(scoresToKeep));
 }
 
+//displaying leadeboard scores
 function showScoresHistory() {
     namesToKeep = userInitials.value;
     addScores(namesToKeep, score);
@@ -411,7 +425,6 @@ function showScoresOriginal() {
 
 // browser local storage for scores is cleared
 function clearScoresHistory() {
-    //   localStorage.removeItem('scoresToKeep');
     localStorage.clear("scoresToKeep");
     localStorage.clear("namesToKeep");
     localStorage.clear("listOfHighScorers");
