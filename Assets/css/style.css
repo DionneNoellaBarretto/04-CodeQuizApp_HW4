@@ -19,8 +19,8 @@ body {
     justify-content: center;
     /* incase a browser doesnt support gradients */
     background-color: lavenderblush;
-    /* a gradient backgorund using 4 colors and with a diagonal gradation*/
-    background-image: linear-gradient(to bottom right,  rgb(87, 243, 87),rgb(245, 245, 84), rgb(92, 92, 247), rgb(247, 84, 84));
+    /* a gradient backgorund using 4 colors and with a radial gradation as seen https://www.w3schools.com/cssref/func_radial-gradient.asp*/
+    background-image: radial-gradient(rgb(247, 84, 84),rgb(185, 185, 78), rgb(110, 226, 110),rgb(92, 92, 247) );
 }
 /* formatting the text of potrtion of the paragraph element */
 p {
@@ -40,7 +40,7 @@ p {
     font-size: 38px;
     justify-content: center;
     /* overwriting the font family to use another google font from stylesheet*/
-    background: -webkit-linear-gradient(rgb(250, 81, 3), rgb(7, 155, 130));
+    background: -webkit-linear-gradient(rgb(28, 3, 250), rgb(7, 155, 130));
     /* incase browser doesnt support webkit then use background clip as backup  */
     background-clip: inherit;
     -webkit-background-clip: text;
@@ -201,7 +201,7 @@ p {
     font-size: 30px;
     font-weight: bold;
     padding-bottom: 10px;
-    background: -webkit-linear-gradient(rgb(26, 82, 21), rgb(78, 21, 3));
+    background: -webkit-linear-gradient(rgb(9, 48, 175), rgb(78, 21, 3));
     /* incase browser doesnt support webkit then use background clip as backup  */
     background-clip: inherit;
     -webkit-background-clip: text;
@@ -278,7 +278,7 @@ margin-top: 3px;
 .heading {
     font-size: 28px;
     /* overwriting the font family to use another google font from stylesheet*/
-    background: -webkit-linear-gradient(rgb(141, 14, 14), rgb(33, 226, 130));
+    background: -webkit-linear-gradient(rgb(104, 4, 219), rgb(7, 104, 56));
     /* incase browser doesnt support webrgb(77, 3, 250)ckground clip as backup  */
     background-clip: inherit;
     -webkit-background-clip: text;
@@ -336,7 +336,7 @@ p {
     -webkit-text-fill-color: transparent;
 }
 #correctAns,#tryAgain,#leaderboard, #leaderboard h1,#leaderboard button, #clear, #incorrectAns, #qn, #highscores,#HighScorers, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .btn, .btn text, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     flex-wrap: column;
     text-align: center;
     height: 18px;
@@ -345,8 +345,8 @@ p {
 }
 
 .score h1 {
-    font-size: 0.6rem;
-    background: -webkit-linear-gradient(rgb(56, 3, 250), rgb(233, 20, 102));
+    font-size: 0.7rem;
+    background: -webkit-linear-gradient(rgb(56, 3, 250), rgb(160, 4, 64));
     /* incase browser doesnt support webkit then use background clip as backup  */
     background-clip: inherit;
     -webkit-background-clip: text;
@@ -358,7 +358,6 @@ p {
 #ans-buttons {
     font-size: 0.7rem;
 }
-
 
 .btn-grid {
     grid-template-columns: repeat(1, auto);
