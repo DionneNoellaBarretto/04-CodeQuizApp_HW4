@@ -60,7 +60,7 @@
         <div class="score hide" id="score">
             <h1 id="userScore"></h1>
              <!-- enforcing a minimum of 3 letters for the name/initial input by the user/player (Ref: https://code.tutsplus.com/tutorials/form-input-validation-using-only-html5-and-regex--cms-33095 / https://stackoverflow.com/questions/17899107/how-to-validate-a-letter-and-whitespace-only-input-via-javascript-regular-expres) -->
-            <form action=" " id="form"><input type="text" placeholder="Enter your Name or Initials" autofocus name="data" id="initials" pattern="[a-zA-Z0-9]+"><button id="submit">Submit</button></form>
+            <form action=" " id="form"><input type="text" placeholder="Enter your Name or Initials" autofocus name="data" required id="initials" pattern="[a-zA-Z0-9]+"><button id="submit">Submit</button></form>
         </div>
         <div class="container hide" id="leaderboard">
             <h1>Top Scores</h1>

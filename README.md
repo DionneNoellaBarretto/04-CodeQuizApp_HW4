@@ -38,19 +38,15 @@ QuestionScreen on Mobile Screen
 Correct/Incorrect Answer Notification
 <img src="./Assets/images/CorrectAnswerNotification.png">
 <img src="./Assets/images/IncorrectAnswerNotification.png">
-Leaderboard Top Scores Desktop View
+Leaderboard Top Scores View
 <img src="./Assets/images/Leaderboard_TopScores.png">
 If you complete all 25 questions before the 100 second timer runs out you will see a prompt like this:
 <img src="./Assets/images/GameOverPrompt.png">
-
-
-
-## Grading Criteria Mock-Up
-
-The following animation demonstrates the application functionality :
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/images/04-web-apis-homework-demo.gif)
-
+Input Visual Validation View:
+Recommended
+<img src="./Assets/images/ValidInputIndication(recommended).png">
+Not Recommended:
+<img src="./Assets/images/InvalidIndicatorforEmptyInputField(not-recommended).png">
 
 ## Grading Requirements
 

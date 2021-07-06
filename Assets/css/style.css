@@ -252,12 +252,12 @@ input:invalid {
   }
   /* when invalid its a shade of red */
   input:invalid:required {
-    background-image: linear-gradient(to right, rgb(252, 136, 155), rgb(250, 164, 183));
+    background-image: linear-gradient(to right, rgb(245, 180, 191), rgb(219, 101, 126));
   }
     /* when valid its a shade of green */
   input:valid {
-    border: 2px solid rgb(75, 224, 16);
-    background-image: linear-gradient(to left, rgb(165, 248, 165), rgb(137, 243, 123));
+    border: 2px solid rgb(39, 117, 8);
+    background-image: linear-gradient(to left, rgb(141, 236, 141)rgb(124, 206, 113));
   }
 
 /* Media Queries for Resonsive UI */
