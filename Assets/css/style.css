@@ -1,320 +1,320 @@
-    /* universal selector */
+/* universal selector */
     
-    *,
-    *::before,
-    *::after {
-        /* custom font from google  */
-        font-family: 'Otomanopee One', sans-serif;
-    }
-    /* element selectors */
-    /* formatting for the background of the quiz app */
-    
-    body {
-        padding: 10;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        align-items: center;
-        justify-content: center;
-        /* incase a browser doesnt support gradients */
-        background-color: lavenderblush;
-        /* a gradient backgorund using 4 colors and with a diagonal gradation*/
-        background-image: linear-gradient(to bottom right,  rgb(87, 243, 87),rgb(245, 245, 84), rgb(92, 92, 247), rgb(247, 84, 84));
-    }
-    /* formatting the text of potrtion of the paragraph element */
-    p {
-        color: rgb(14, 13, 13);
-        padding-top: 30px;
-        text-align: center;
-        font-size: 25px;
-        margin-top: 5px;
-    }
-    /* class &id  selectors */
-    /* formatting the static header banner up top */
-    
-    .heading {
-        padding: 2px 0px 0px 5px;
-        color: rgb(54, 53, 53);
-        align-content: center;
-        font-size: 38px;
-        justify-content: center;
-        /* overwriting the font family to use another google font from stylesheet*/
-        background: -webkit-linear-gradient(rgb(250, 81, 3), rgb(7, 155, 130));
-        /* incase browser doesnt support webkit then use background clip as backup  */
-        background-clip: inherit;
-        -webkit-background-clip: text;
-        /* allows for the text to have a see through background  */
-        -webkit-text-fill-color: transparent;
-        font-family: 'Princess Sofia', cursive;
-    }
-    /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
-    
-    #correctAns {
-        color: rgb(25, 180, 25);
-        font-size: 40px;
-        align-content: center;
-        font-family: 'Yomogi', cursive;
-        font-style: italic;
-        font-weight: bolder;
-    }
-    
-    #incorrectAns {
-        color: rgb(196, 36, 36);
-        font-size: 40px;
-        font-family: 'Yomogi', cursive;
-        align-content: center;
-        font-style: italic;
-        font-weight: bolder;
-    }
-    /* formatting for the hidden gamestats  visbile once user has entered a score upon completing the quiz/running out of time or clicking the 'leaderboard' button */
-    
-    .gamestats {
-        display: flex;
-        flex-direction: row;
-        padding: 20px 10px;
-        width: 40%;
-        height: auto;
-        justify-content: space-between;
-    }
-    
-    #highscores {
-        background-color: rgb(230, 152, 100);
-        font-size: 20px;
-        height: 40px;
-        color: rgb(48, 47, 47);
-        border: dotted 2px rgb(231, 235, 4);
-        border-radius: 20%;
-        font-weight: bold;
-    }
-    
-    .highscores {
-        padding: 30px;
-        margin: 10;
-        height: 40px;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        font-family: 'Princess Sofia', cursive;
-    }
-    
-    #highscores:hover {
-        border-color: rgb(86, 7, 122);
-    }
-    
-    .timer {
-        padding: 3px;
-        margin: 2;
-        text-align: right;
-        /* if any lesser then the question will overflow into the timer block */
-        height: 45px;
-    }
-    
-    .timer h1 {
-        font-size: 25px;
-        margin: 5px;
-        padding: 5px;
-        border: dotted 2px rgb(101, 236, 202);
-        border-radius: 20%;
-        color: rgb(48, 47, 47);
-        background-color: rgb(226, 176, 248);
-        /* when pointer is hovered over the timer section, user it presented a block sign indicating there's no click allowed */
-        cursor: not-allowed;
-    }
-    
-    .qn-ans-section {
-        padding: 0px 4px 0px 0px;
-        width: 800px;
-        max-width: 80%;
-        max-height: 30%;
-    }
-    
-    #qn {
-        color: rgb(19, 18, 18);
-        font-size: 30px;
-        text-align: center;
-        flex-wrap: wrap;
-        font-family: 'Indie Flower', cursive;
-    }
-    
-    .btn-grid {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        gap: 10px;
-        margin: 20px 10px;
-        padding-top: 10px;
-    }
-    /* formatting of the start button and the answer options */
-    
-    .btn {
-        background-color: rgb(253, 160, 160);
-        border: 2px dotted rgb(169, 75, 231);
-        padding: 5px, 10px;
-        color: rgb(48, 47, 47);
-        border-radius: 20%;
-        justify-content: center;
-        cursor: pointer;
-        font-family: 'Princess Sofia', cursive;
-        font-weight: bolder;
-    }
-    
-    .btn text {
-        text-align: center;
-        font-size: 40px;
-    }
-    
-    .ans {
-        padding-top: 30px;
-        text-align: center;
-        font-size: 100%;
-        font-family: 'Yomogi', cursive;
-        font-weight: bolder;
-    }
-    
-    .btn:hover {
-        border-color: rgb(74, 226, 112);
-    }
-    
-    #ans-buttons {
-        height: 200px;
-    }
-    
-    .start-btn {
-        font-size: 2rem;
-        font-weight: bold;
-        padding: 10px 20px;
-    }
-    
-    .controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .hide {
-        display: none;
-    }
-    
-    .score {
-        align-items: center;
-    }
-    
-    .score h1 {
-        color: rgb(250, 8, 238);
-        font-size: 30px;
-        font-weight: bold;
-        padding-bottom: 10px;
-    }
-    
-    .score form {
-        align-items: center;
-        width: 2500px;
-        height: 100px;
-    }
-    
-    #leaderboard {
-        text-align: center;
-        justify-content: space-between;
-    }
-    
-    #leaderboard h1 {
-        text-align: center;
-        font-size: 40px;
-        color: rgb(19, 18, 18);
-        border-bottom: 5px double rgb(245, 214, 214);
-        padding-bottom: 10px;
-    }
-    
-    #leaderboard button {
-        font-size: 20px;
-        width: 250px;
-        height: 100px;
-        margin: 0 60px;
-    }
-    
-    #leaders {
-        color: rgb(7, 7, 7);
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        margin: 15px;
-        padding-bottom: 30px;
-    }
+*,
+*::before,
+*::after {
+    /* custom font from google  */
+    font-family: 'Otomanopee One', sans-serif;
+}
+/* element selectors */
+/* formatting for the background of the quiz app */
+
+body {
+    padding: 10;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    /* incase a browser doesnt support gradients */
+    background-color: lavenderblush;
+    /* a gradient backgorund using 4 colors and with a diagonal gradation*/
+    background-image: linear-gradient(to bottom right,  rgb(87, 243, 87),rgb(245, 245, 84), rgb(92, 92, 247), rgb(247, 84, 84));
+}
+/* formatting the text of potrtion of the paragraph element */
+p {
+    color: rgb(14, 13, 13);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+}
+/* class &id  selectors */
+/* formatting the static header banner up top */
+
+.heading {
+    padding: 2px 0px 0px 5px;
+    color: rgb(54, 53, 53);
+    align-content: center;
+    font-size: 38px;
+    justify-content: center;
+    /* overwriting the font family to use another google font from stylesheet*/
+    background: -webkit-linear-gradient(rgb(250, 81, 3), rgb(7, 155, 130));
+    /* incase browser doesnt support webkit then use background clip as backup  */
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    /* allows for the text to have a see through background  */
+    -webkit-text-fill-color: transparent;
+    font-family: 'Princess Sofia', cursive;
+}
+/* formatting for the correct vs incorrect answer prompt when qn is answered by user */
+
+#correctAns {
+    color: rgb(25, 180, 25);
+    font-size: 40px;
+    align-content: center;
+    font-family: 'Yomogi', cursive;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+#incorrectAns {
+    color: rgb(196, 36, 36);
+    font-size: 40px;
+    font-family: 'Yomogi', cursive;
+    align-content: center;
+    font-style: italic;
+    font-weight: bolder;
+}
+/* formatting for the hidden gamestats  visbile once user has entered a score upon completing the quiz/running out of time or clicking the 'leaderboard' button */
+
+.gamestats {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 10px;
+    width: 40%;
+    height: auto;
+    justify-content: space-between;
+}
+
+#highscores {
+    background-color: rgb(230, 152, 100);
+    font-size: 20px;
+    height: 40px;
+    color: rgb(48, 47, 47);
+    border: dotted 2px rgb(231, 235, 4);
+    border-radius: 20%;
+    font-weight: bold;
+}
+
+.highscores {
+    padding: 30px;
+    margin: 10;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-family: 'Princess Sofia', cursive;
+}
+
+#highscores:hover {
+    border-color: rgb(86, 7, 122);
+}
+
+.timer {
+    padding: 3px;
+    margin: 2;
+    text-align: right;
+    /* if any lesser then the question will overflow into the timer block */
+    height: 45px;
+}
+
+.timer h1 {
+    font-size: 25px;
+    margin: 5px;
+    padding: 5px;
+    border: dotted 2px rgb(101, 236, 202);
+    border-radius: 20%;
+    color: rgb(48, 47, 47);
+    background-color: rgb(226, 176, 248);
+    /* when pointer is hovered over the timer section, user it presented a block sign indicating there's no click allowed */
+    cursor: not-allowed;
+}
+
+.qn-ans-section {
+    padding: 0px 4px 0px 0px;
+    width: 800px;
+    max-width: 80%;
+    max-height: 30%;
+}
+
+#qn {
+    color: rgb(19, 18, 18);
+    font-size: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+    font-family: 'Indie Flower', cursive;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 10px;
+    padding-top: 10px;
+}
+/* formatting of the start button and the answer options */
+
+.btn {
+    background-color: rgb(238, 122, 122);
+    border: 2px dotted rgb(143, 4, 235);
+    padding: 5px, 10px;
+    color: rgb(48, 47, 47);
+    border-radius: 20%;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Princess Sofia', cursive;
+    font-weight: bolder;
+}
+
+.btn text {
+    text-align: center;
+    font-size: 40px;
+}
+
+.ans {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Yomogi', cursive;
+    font-weight: bolder;
+}
+
+.btn:hover {
+    border-color: rgb(74, 226, 112);
+}
+
+#ans-buttons {
+    height: 200px;
+}
+
+.start-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.score {
+    align-items: center;
+}
+
+.score h1 {
+    color: rgb(250, 8, 238);
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.score form {
+    align-items: center;
+    width: 2500px;
+    height: 100px;
+}
+
+#leaderboard {
+    text-align: center;
+    justify-content: space-between;
+}
+
+#leaderboard h1 {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(19, 18, 18);
+    border-bottom: 5px double rgb(245, 214, 214);
+    padding-bottom: 10px;
+}
+
+#leaderboard button {
+    font-size: 20px;
+    width: 250px;
+    height: 100px;
+    margin: 0 60px;
+}
+
+#leaders {
+    color: rgb(7, 7, 7);
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px;
+    padding-bottom: 30px;
+}
 
 
 /* Media Queries for Resonsive UI */
 /* Tablets  responsive ui */
 @media screen and (max-width: 992px) {
-    body {
-        height: 100vh;
-        /* incase a browser doesnt support gradients */
-        background-color: lemonchiffon;
-        /* a gradient backgorund using 4 colors and with a diagonal gradation*/
-        background-image: linear-gradient(to bottom left, rgb(247, 84, 84),rgb(245, 245, 84), rgb(92, 92, 247),rgb(87, 243, 87));
-    }
-   p {
-    padding-top: 15px;
-    font-size: 15px;
-    margin-top: 3px;
-    }
-    .heading {
-        font-size: 28px;
-        /* overwriting the font family to use another google font from stylesheet*/
-        background: -webkit-linear-gradient(rgb(12, 245, 136), rgb(241, 13, 13));
-        /* incase browser doesnt support webrgb(77, 3, 250)ckground clip as backup  */
-        background-clip: inherit;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .timer .timer h1 .gamestats .controls .btn #correctAns #incorrectAns .btn text #ans-buttons  #qn .start-btn .ans #highscores .qn-ans-section .hide .score form .score .score h1 #qn section{
-        font-size: 0.9rem;
-        flex-wrap: column;
-        text-align: center;
-        justify-content:center;
-        flex-direction: column;
-        height: 15px;
-    }
-    .btn-grid {
-        grid-template-columns: repeat(1, auto);
-        gap: 7px;
-    }
+body {
+    height: 100vh;
+    /* incase a browser doesnt support gradients */
+    background-color: lemonchiffon;
+    /* a gradient backgorund using 4 colors and with a diagonal gradation*/
+    background-image: linear-gradient(to bottom left, rgb(247, 84, 84),rgb(245, 245, 84), rgb(92, 92, 247),rgb(87, 243, 87));
+}
+p {
+padding-top: 15px;
+font-size: 15px;
+margin-top: 3px;
+}
+.heading {
+    font-size: 28px;
+    /* overwriting the font family to use another google font from stylesheet*/
+    background: -webkit-linear-gradient(rgb(12, 245, 136), rgb(241, 13, 13));
+    /* incase browser doesnt support webrgb(77, 3, 250)ckground clip as backup  */
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.timer .timer h1 .gamestats .controls .btn #correctAns #incorrectAns .btn text #ans-buttons  #qn .start-btn .ans #highscores .qn-ans-section .hide .score form .score .score h1 #qn section{
+    font-size: 0.9rem;
+    flex-wrap: column;
+    text-align: center;
+    justify-content:center;
+    flex-direction: column;
+    height: 15px;
+}
+.btn-grid {
+    grid-template-columns: repeat(1, auto);
+    gap: 7px;
+}
 
 }
-    
+
 /* Cellphones responsive ui */
 @media screen and (max-width: 768px) {
-    body {
-        height: 100vh;
-        /* incase a browser doesnt support gradients */
-        background-color: lemonchiffon;
-        /* a gradient backgorund using 4 colors and with a diagonal gradation*/
-        background-image: linear-gradient(  rgb(247, 84, 84),rgb(245, 245, 84), rgb(87, 243, 87),rgb(92, 92, 247));
-    }
-    p {
-        padding-top: 5px;
-        font-size: 10px;
-        margin-top: 2px;
-    }
-    .heading {
-        font-size: 20px;
-        /* overwriting the font family to use another google font from stylesheet*/
-        background: -webkit-linear-gradient(rgb(226, 17, 174), rgb(11, 220, 248));
-        /* incase browser doesnt support webrgb(77, 3, 250)ckground clip as backup  */
-        background-clip: inherit;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .timer .timer h1 .gamestats .controls .btn #correctAns #incorrectAns .btn text #ans-buttons .start-btn .ans #qn #highscores .qn-ans-section .hide .score form .score .score h1 #qn section{
-        font-size: 0.6rem;
-        flex-wrap: column;
-        text-align: center;
-        justify-content:center;
-        flex-direction: column;
-        height: 7px;
-    }
+body {
+    height: 100vh;
+    /* incase a browser doesnt support gradients */
+    background-color: lemonchiffon;
+    /* a gradient backgorund using 4 colors and with a diagonal gradation*/
+    background-image: linear-gradient(  rgb(247, 84, 84),rgb(245, 245, 84), rgb(87, 243, 87),rgb(92, 92, 247));
+}
+p {
+    padding-top: 5px;
+    font-size: 10px;
+    margin-top: 2px;
+}
+.heading {
+    font-size: 20px;
+    /* overwriting the font family to use another google font from stylesheet*/
+    background: -webkit-linear-gradient(rgb(226, 17, 174), rgb(11, 220, 248));
+    /* incase browser doesnt support webrgb(77, 3, 250)ckground clip as backup  */
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.timer .timer h1 .gamestats .controls .btn #correctAns #incorrectAns .btn text #ans-buttons .start-btn .ans #qn #highscores .qn-ans-section .hide .score form .score .score h1 #qn section{
+    font-size: 0.6rem;
+    flex-wrap: column;
+    text-align: center;
+    justify-content:center;
+    flex-direction: column;
+    height: 9px;
+}
 
-    .btn-grid {
-        grid-template-columns: repeat(1, auto);
-        gap: 4px;
-    }
+.btn-grid {
+    grid-template-columns: repeat(1, auto);
+    gap: 4px;
+}
 }
