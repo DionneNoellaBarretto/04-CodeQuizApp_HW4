@@ -1,7 +1,7 @@
 // defining all variables
 var scores = document.getElementById('score');
 var clock = document.getElementById('timer');
-var tryAgain = document.getElementById('play-again');
+var playAgain = document.getElementById('tryAgain');
 var allScoresList = document.getElementById('HighScorers');
 var leaderBoardButton = document.getElementById('highscores');
 var currentQnIndex;
@@ -17,14 +17,14 @@ var correctAnsPost = document.getElementById('correctAns');
 var incorrectAnsPost = document.getElementById('incorrectAns');
 var userScore = document.getElementById('userScore');
 var leaderboard = document.getElementById('leaderboard');
-//setting initial time remaining to 90 seconds
+//setting initial time remaining to 100 seconds so 25 questions  from the qnArray can be answered
 var sec = 100;
 var score = 0;
 //empty string/ array
 var namesToKeep = "";
 var scoresToKeep = [];
 var shuffled = [];
-//qn answer array ( for the qn bank referenced https://www.guru99.com/javascript-interview-questions-answers.html & https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function )
+//qn answer array ( for qns referenced sources are https://www.guru99.com/javascript-interview-questions-answers.html & https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function )
 var qnArray = [{
         title: 'JavaScript only runs if it is stored in its own .js file.',
         options: [
@@ -253,7 +253,7 @@ function initializeQuestion(shuffledQns) {
     showQn(shuffledQns[currentQnIndex]);
 }
 
-// function to clear out the answer
+// function to clear out the answers from the previous qn presented
 function clearoptions() {
     ansButtonsEl.innerHTML = "";
 }
@@ -261,6 +261,7 @@ function clearoptions() {
 // function for listing question with the 4 options as answers
 function showQn(currentQnObject) {
     qnEl.textContent = currentQnObject.title;
+    //calling the clear answers function to ensure every qn has a new 4 corresponding answer options
     clearoptions();
     var ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQnObject.options[0].text;
@@ -313,7 +314,7 @@ function selectAns(isCorrect) {
     //console.log(currentQnIndex);
     // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
-        alert("Game Over! You have completed all of questions from the bank! Click OK to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
+        alert("Game Over! You have completed all of questions from the qn bank! Click OK to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
         endQuiz();
     } else {
         showQn(shuffled[currentQnIndex]);
@@ -333,21 +334,25 @@ function endQuiz() {
     scores.classList.remove('hide');
     leaderBoardButton.classList.remove('hide');
     //this is all that the user should be shown 
-    userScore.textContent = "You've scored a" + score + "out of a possible total of 100!";
-    //showScoresHistory();
+    userScore.textContent = "You've scored a total of" + score + "out of a possible 100!";
+    showScoresHistory();
 }
 
-
-
-// clear score history listener
-clearScores.addEventListener('click', clearScoresHistory)
-
-// "try again" listener
-tryAgain.addEventListener('click', function() {
+// "Play Again" listener to call the restart quiz function whihc inturn calls the start quiz function
+playAgain.addEventListener('click', function() {
     restartQuiz();
 })
 
-// listener for leaderboard button being clicked to display on scoreshistory section and hide everything else
+// function to restart quiz with a 100 second initialized (reset) timer
+function restartQuiz() {
+    clock.classList.remove('hide')
+    sec = 100;
+    score = 0;
+    leaderboard.classList.add('hide');
+    startQuiz();
+}
+
+// listener for leaderboard button being clicked to display on scores history section and hide everything else
 leaderBoardButton.addEventListener('click', function() {
     clock.classList.add('hide')
     startButton.classList.add('hide');
@@ -371,15 +376,6 @@ function addScores(initials, score) {
     }
     scoresToKeep.push(newScore);
     localStorage.setItem('scoresToKeep', JSON.stringify(scoresToKeep));
-}
-
-// function to restart quiz with a 100 second initialized (reset) timer
-function restartQuiz() {
-    clock.classList.remove('hide')
-    sec = 100;
-    score = 0;
-    leaderboard.classList.add('hide');
-    startQuiz();
 }
 
 function showScoresHistory() {
@@ -423,3 +419,5 @@ function clearScoresHistory() {
     //   localStorage.setItem("");
     allScoresList.innerHTML = "";
 }
+// clear score history listener
+clearScores.addEventListener('click', clearScoresHistory)
