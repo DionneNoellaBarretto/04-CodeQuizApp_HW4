@@ -27,12 +27,13 @@
         <div class="timer">
             <!-- adding timer to the hidden class on the main page to avoid user from clicking on timer instead of start or leaderboard -->
             <!-- gif from from https://gfycat.com/dependablepiercingcardinal  -->
-            <h1 class="hide" id="timer">
-                <!-- <img class="hide" src="./Assets/images/blue-hourglass.gif" alt="hourglass gif" width="100" height="70"> -->
-                    Time Remaining:
-            </h1>
+            <h1 class="hide" id="timer"> Time Remaining: </h1>
         </div>
     </section>
+    <!-- line breaks to ensure sufficent  spacing between sections for all screen layouts -->
+    <br>
+    <br>
+    <br>
     <!-- main area to display questions and answers + results  -->
     <main class="qn-ans-section">
         <!-- answer result shared with user -->
@@ -44,11 +45,13 @@
         <!-- this span styles the "25 questions ", "-10 second " and '75 second' texts in the following sentences -->
         <p id="description"> This <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 question </span> quiz is a quick JavaScript basics knowledge check.
             <br>
-            <br> Each wrong answers results in a penalty of <span style="color: rgb(153, 18, 18); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
+            <br> Each wrong answers results in a penalty of <span style="color: rgb(206, 32, 32); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
             <br> Click <span style="text-decoration: underline">"Start "</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
         <br>
         <div class="controls"><button id="start-btn" class="start-btn btn" style="text-decoration: underline">Start</button></div>
     </main>
+    <br>
+    <br>
     <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
     <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
     <div class="score hide" id="score">

@@ -334,7 +334,7 @@ function endQuiz() {
     leaderBoardButton.classList.remove('hide');
     //this is all that the user should be shown 
     userScore.textContent = "You've scored a" + score + "out of a possible total of 100!";
-    showScoresHistory();
+    //showScoresHistory();
 }
 
 
