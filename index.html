@@ -26,7 +26,11 @@
         <div id="incorrectAns" class="hide">Incorrect Answer!</div>
         <div class="timer">
             <!-- adding timer to the hidden class on the main page to avoid user from clicking on timer instead of start or leaderboard -->
-            <h1 class="hide" id="timer">Time Remaining: </h1>
+            <!-- gif from from https://gfycat.com/dependablepiercingcardinal  -->
+            <h1 class="hide" id="timer">
+                <!-- <img class="hide" src="./Assets/images/blue-hourglass.gif" alt="hourglass gif" width="100" height="70"> -->
+                    Time Remaining:
+            </h1>
         </div>
     </section>
     <!-- main area to display questions and answers + results  -->
@@ -47,8 +51,8 @@
     </main>
     <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
     <div class="highscores"> <button class="btn" id="highscores">Leaderboard!</button> </div>
-    <div class="score hide" id="score ">
-        <h1 id="userScore "></h1>
+    <div class="score hide" id="score">
+        <h1 id="userScore"></h1>
         <form action=" " id="form"><input type="text" name="data" id="initials" placeholder="Enter Name or Initials"><button id="submit">Submit</button></form>
     </div>
     <div class="container hide" id="leaderboard">
@@ -56,6 +60,6 @@
         <ol id="HighScorers"></ol><button class="btn" id="clear">Clear</button><button class="btn" id="play-again">Try Again</button></div>
 </body>
 <!-- link to javascript file -->
-<script src="./Assets/js/script.js "></script>
+<script src="./Assets/js/script.js"></script>
 
 </html>

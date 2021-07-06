@@ -20,7 +20,7 @@
         /* incase a browser doesnt support gradients */
         background-color: lavenderblush;
         /* a gradient backgorund using 4 colors and with a diagonal gradation*/
-        background-image: linear-gradient(to bottom right, rgb(245, 245, 84), rgb(96, 250, 96), rgb(107, 107, 247), rgb(247, 84, 84));
+        background-image: linear-gradient(to bottom right,  rgb(87, 243, 87),rgb(245, 245, 84), rgb(92, 92, 247), rgb(247, 84, 84));
     }
     /* formatting the text of potrtion of the paragraph element */
     
@@ -52,7 +52,7 @@
     /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
     
     #correctAns {
-        color: rgb(6, 126, 6);
+        color: rgb(25, 180, 25);
         font-size: 40px;
         align-content: center;
         font-family: 'Yomogi', cursive;
@@ -106,7 +106,7 @@
     .timer {
         padding: 3px;
         margin: 2;
-        text-align: left;
+        text-align: right;
         /* if any lesser then the question will overflow into the timer block */
         height: 45px;
     }
@@ -115,10 +115,10 @@
         font-size: 25px;
         margin: 5px;
         padding: 5px;
-        border: dotted 2px rgb(6, 240, 181);
+        border: dotted 2px rgb(101, 236, 202);
         border-radius: 20%;
         color: rgb(48, 47, 47);
-        background-color: rgb(65, 174, 224);
+        background-color: rgb(226, 176, 248);
         /* when pointer is hovered over the timer section, user it presented a block sign indicating there's no click allowed */
         cursor: not-allowed;
     }
@@ -156,6 +156,7 @@
         justify-content: center;
         cursor: pointer;
         font-family: 'Princess Sofia', cursive;
+        font-weight: bolder;
     }
     
     .btn text {
@@ -168,7 +169,7 @@
         text-align: center;
         font-size: 100%;
         font-family: 'Yomogi', cursive;
-        font-weight: bold;
+        font-weight: bolder;
     }
     
     .btn:hover {
