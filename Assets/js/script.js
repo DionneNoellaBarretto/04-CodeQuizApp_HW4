@@ -6,7 +6,7 @@ var allScoresList = document.getElementById('HighScorers');
 var leaderBoardButton = document.getElementById('highscores');
 var currentQnIndex;
 var clearScores = document.getElementById('clear');
-var startButton = document.getElementById('start-btn');
+var startButton = document.getElementById('startBtn');
 var description = document.getElementById('description');
 var qnContainerEl = document.getElementById('qn-section');
 var qnEl = document.getElementById('qn');
