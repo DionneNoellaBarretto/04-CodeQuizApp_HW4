@@ -37,7 +37,7 @@ QuestionScreen on Mobile Screen
 <img src="./Assets/images/MobileScreen.png">
 Correct/Incorrect Answer Notification
 <img src="./Assets/images/CorrectAnswerNotification.png">
-<img src="./Assets/images/CorrectAnswerNotification.png">
+<img src="./Assets/images/IncorrectAnswerNotification.png">
 Leaderboard Top Scores Desktop View
 <img src="./Assets/images/Leaderboard_TopScores.png">
 If you complete all 25 questions before the 100 second timer runs out you will see a prompt like this:
