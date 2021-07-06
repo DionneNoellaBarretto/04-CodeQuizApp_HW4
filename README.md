@@ -25,11 +25,32 @@ UNC Boot Camp Submission: 🗂️ [Github Repository](https://github.com/DionneN
 
 --------------------------------
 
-## Mock-Up
 
-The following animation demonstrates the application functionality:
+### ResponseUI Solution - Desktop, Tablet & Mobile Views
+Starting Screen-Desktop View
+<img src= "./Assets/images/StartingScreen.png">
+QuestionScreen on Desktop/Laptop Screen
+<img src="./Assets/images/QuestionsScreen_100sectimer.png">
+QuestionScreen on Tablet Screen
+<img src="./Assets/images/TabletScreen.png">
+QuestionScreen on Mobile Screen
+<img src="./Assets/images/MobileScreen.png">
+Correct/Incorrect Answer Notification
+<img src="./Assets/images/CorrectAnswerNotification.png">
+<img src="./Assets/images/CorrectAnswerNotification.png">
+Leaderboard Top Scores Desktop View
+<img src="./Assets/images/Leaderboard_TopScores.png">
+If you complete all 25 questions before the 100 second timer runs out you will see a prompt like this:
+<img src="./Assets/images/GameOverPrompt.png">
+
+
+
+## Grading Criteria Mock-Up
+
+The following animation demonstrates the application functionality :
 
 ![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/images/04-web-apis-homework-demo.gif)
+
 
 ## Grading Requirements
 
