@@ -1,6 +1,6 @@
 // defining all variables
 var scores = document.getElementById('score');
-var clock = document.getElementById('timer');
+var timeTracking = document.getElementById('timer');
 var playAgain = document.getElementById('tryAgain');
 var allScoresList = document.getElementById('HighScorers');
 var leaderBoardButton = document.getElementById('highscores');
@@ -244,7 +244,7 @@ function startQuiz() {
     currentQnIndex = 0;
     //unhiding the timer and the qncontainerelement
     qnContainerEl.classList.remove('hide');
-    clock.classList.remove('hide');
+    timeTracking.classList.remove('hide');
     initializeQuestion(shuffled);
 }
 
@@ -327,7 +327,7 @@ function endQuiz() {
     // console.log(sec);
     //console.log(score);
     sec = 0;
-    clock.classList.add('hide')
+    timeTracking.classList.add('hide')
     correctAnsPost.classList.add('hide');
     incorrectAnsPost.classList.add('hide');
     qnContainerEl.classList.add('hide');
@@ -345,7 +345,7 @@ playAgain.addEventListener('click', function() {
 
 // function to restart quiz with a 100 second initialized (reset) timer
 function restartQuiz() {
-    clock.classList.remove('hide')
+    timeTracking.classList.remove('hide')
     sec = 100;
     score = 0;
     leaderboard.classList.add('hide');
@@ -354,7 +354,7 @@ function restartQuiz() {
 
 // listener for leaderboard button being clicked to display on scores history section and hide everything else
 leaderBoardButton.addEventListener('click', function() {
-    clock.classList.add('hide')
+    timeTracking.classList.add('hide')
     startButton.classList.add('hide');
     description.classList.add('hide');
     qnContainerEl.classList.add('hide');
