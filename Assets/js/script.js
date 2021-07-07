@@ -440,7 +440,7 @@ function showScoresOriginal() {
     } 
 }
 
-// browser local storage for scores is cleared
+// browser local storage for scores is cleared upon browser hard refresh or a start click if you go back home, if not done the score entries will persist resulting in the page getting filled up with previous records
 function clearScoresHistory() {
     localStorage.clear("scoreSaver");
     localStorage.clear("savedNames");
