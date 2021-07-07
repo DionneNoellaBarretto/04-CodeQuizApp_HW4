@@ -394,7 +394,6 @@ function addScores(initials, score) {
     //scores being stingified and stored in the local storage as key value pair
     localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
         //enter Anonymous every time input string is empty
-
 }
 
 //displaying leadeboard scores
@@ -429,7 +428,6 @@ function showScoresOriginal() {
         allScoresList.append(newLeader);
     }
 }
-
 
 // browser local storage for scores is cleared
 function clearScoresHistory() {
