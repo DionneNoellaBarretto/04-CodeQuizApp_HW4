@@ -18,7 +18,7 @@
 </head>
 <br>
 <!-- header like an about me  -->
-<h1 class="heading">JavaScript Fundamentals Timed Quiz</h1>
+<h1 class="heading" id="title">JavaScript Fundamentals Timed Quiz</h1>
 
 <body>
     <section class="gamestats">
@@ -32,14 +32,12 @@
     <!-- line breaks to ensure sufficent  spacing between sections for all screen layouts -->
     <br>
     <br>
-    <br>
     <!-- main area to display questions and answers + results  -->
     <main class="qn-ans-section">
         <!-- answer result shared with user -->
         <div id="ans-return"></div>
         <div id="qn-section" class="hide">
             <div id="qn">Question</div>
-            <br>
             <br>
             <div id="ans-buttons" class="btn-grid"></div>
         </div>
@@ -49,7 +47,7 @@
             <br> Each wrong answers results in a penalty of <span style="color: rgb(206, 32, 32); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
             <br> Click <span style="text-decoration: underline">"Start"</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
         <br>
-        <div class="controls"><button id="startBtn" class="startBtn btn" style="text-decoration: underline">Start</button></div>
+        <div class="controls"><button id="startBtn" class="startBtn" style="text-decoration: underline">Start</button></div>
     </main>
     <br>
     <br>

@@ -1,4 +1,5 @@
 // defining all variables
+var title = document.getElementById('title');
 var scores = document.getElementById('score');
 var timeTracking = document.getElementById('timer');
 var playAgain = document.getElementById('tryAgain');
@@ -13,16 +14,16 @@ var qnEl = document.getElementById('qn');
 var ansButtonsEl = document.getElementById('ans-buttons');
 var submit = document.getElementById('submit');
 var userInitials = document.getElementById('initials');
-var correctAnsPost = document.getElementById('correctAns');
-var incorrectAnsPost = document.getElementById('incorrectAns');
+var correctAnsPrompt = document.getElementById('correctAns');
+var incorrectAnsPrompt = document.getElementById('incorrectAns');
 var userScore = document.getElementById('userScore');
 var leaderboard = document.getElementById('leaderboard');
 //setting initial time remaining to 100 seconds so 25 questions  from the qnArray can be answered
-var sec = 100;
+var timeLeft = 100;
 var score = 0;
 //empty string/ array
-var namesToKeep = "";
-var scoresToKeep = [];
+var savedNames = "";
+var scoreSaver = [];
 var shuffled = [];
 var input = document.querySelectorAll('input');
 //qn answer array ( for qns referenced sources are https://www.guru99.com/javascript-interview-questions-answers.html & https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function )
@@ -226,12 +227,12 @@ function shuffleArray(inputArray) {
 // quiz timer function
 function timer() {
     var timer = setInterval(function() {
-        document.getElementById('timer').textContent = 'Time Remaining : ' + sec;
-        if (sec <= 0) {
+        document.getElementById('timer').textContent = 'Time Remaining : ' + timeLeft;
+        if (timeLeft <= 0) {
             clearInterval(timer);
             endQuiz()
         }
-        sec--;
+        timeLeft--;
     }, 1000);
 }
 
@@ -302,14 +303,14 @@ function selectAns(isCorrect) {
         score += (100 / qnArray.length);
         // console.log(qnArray.length);
         // console.log(score);
-        incorrectAnsPost.classList.add('hide');
-        correctAnsPost.classList.remove('hide');
+        incorrectAnsPrompt.classList.add('hide');
+        correctAnsPrompt.classList.remove('hide');
     }
     // lest decrease the timer by "score" seconds where score = (100 / qnArray.length) and in this case its 100/25 which is 4 seconds ( similar to the number of points for each correct qn answered in the 75 second time limit)
     else {
-        sec -= 5;
-        correctAnsPost.classList.add('hide');
-        incorrectAnsPost.classList.remove('hide');
+        timeLeft -= 5;
+        correctAnsPrompt.classList.add('hide');
+        incorrectAnsPrompt.classList.remove('hide');
     }
     // once a n is answered increase the counter of the currentQnIndexer to keep track of how many questions have been answered..
     currentQnIndex++;
@@ -328,10 +329,10 @@ function endQuiz() {
     //its likely that when sec is zeroed out the quiz ends which is why the clock/timer the previously displayed elements are all hidden and now the user is shown their score! 
     // console.log(sec);
     //console.log(score);
-    sec = 0;
+    timeLeft = 0;
     timeTracking.classList.add('hide')
-    correctAnsPost.classList.add('hide');
-    incorrectAnsPost.classList.add('hide');
+    correctAnsPrompt.classList.add('hide');
+    incorrectAnsPrompt.classList.add('hide');
     qnContainerEl.classList.add('hide');
     scores.classList.remove('hide');
     leaderBoardButton.classList.remove('hide');
@@ -351,7 +352,7 @@ playAgain.addEventListener('click', function() {
 // function to restart quiz with a 100 second initialized (reset) timer
 function restartQuiz() {
     timeTracking.classList.remove('hide')
-    sec = 100;
+    timeLeft = 100;
     score = 0;
     leaderboard.classList.add('hide');
     startQuiz();
@@ -360,6 +361,7 @@ function restartQuiz() {
 // listener for leaderboard button being clicked to display on scores history section and hide everything else
 leaderBoardButton.addEventListener('click', function() {
     timeTracking.classList.add('hide')
+    title.classList.add('hide');
     startButton.classList.add('hide');
     description.classList.add('hide');
     qnContainerEl.classList.add('hide');
@@ -387,19 +389,21 @@ function addScores(initials, score) {
         initials: initials,
         score: score
     }
-    scoresToKeep.push(newScore);
-    localStorage.setItem('scoresToKeep', JSON.stringify(scoresToKeep));
+    scoreSaver.push(newScore);
+    localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
+        //enter Anonymous every time input string is empty
+
 }
 
 //displaying leadeboard scores
 function showScoresHistory() {
-    namesToKeep = userInitials.value;
-    addScores(namesToKeep, score);
+    savedNames = userInitials.value;
+    addScores(savedNames, score);
     scores.classList.add('hide');
     //unhiding the leaderboard
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
-    var displayScores = JSON.parse(localStorage.getItem("scoresToKeep"));
+    var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
@@ -409,11 +413,11 @@ function showScoresHistory() {
 }
 
 function showScoresOriginal() {
-    namesToKeep = userInitials.value;
+    savedNames = userInitials.value;
     scores.classList.add('hide');
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
-    var displayScores = JSON.parse(localStorage.getItem("scoresToKeep"));
+    var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
@@ -425,8 +429,8 @@ function showScoresOriginal() {
 
 // browser local storage for scores is cleared
 function clearScoresHistory() {
-    localStorage.clear("scoresToKeep");
-    localStorage.clear("namesToKeep");
+    localStorage.clear("scoreSaver");
+    localStorage.clear("savedNames");
     localStorage.clear("listOfHighScorers");
 
     //   localStorage.setItem("");
