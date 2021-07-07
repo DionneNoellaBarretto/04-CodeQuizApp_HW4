@@ -251,7 +251,7 @@ function startQuiz() {
     initializeQuestion(shuffled);
 }
 
-// function to randomize/shuffle question list
+// function to randomize/shuffle question/answer list
 function initializeQuestion(shuffledQns) {
     showQn(shuffledQns[currentQnIndex]);
 }
@@ -296,6 +296,7 @@ function showQn(currentQnObject) {
     })
 }
 
+
 // validates and counts answers in multiples of 4 since I have 25 questions in the var qnArraybank for a total of 100 points. for this to be scalable incase I choose to add more qns I've stated that the cumulative possible score of 100 be divided by the length of the qnArray to determine the points for each qn
 function selectAns(isCorrect) {
     // if correct increase the score counter by 'score' points 
@@ -317,7 +318,7 @@ function selectAns(isCorrect) {
     //console.log(currentQnIndex);
     // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
-        alert("Game Over! You have completed all of questions from the qn bank! Click OK to add your score of " + score + " out of a possible score of 100, to the leaderboard!");
+        alert("Game Over! You have completed all 25 questions from this qn bank! Click OK to add your score of " + score + " out of a possible 100, to the leaderboard!");
         endQuiz();
     } else {
         showQn(shuffled[currentQnIndex]);
@@ -339,7 +340,7 @@ function endQuiz() {
     userInitials.classList.remove('hide');
     userScore.classList.remove('hide');
     //this is all that the user should be shown 
-    userScore.textContent = "You've scored " + score + " out of a possible 100!";
+    userScore.textContent = "Time Up - Game Over !!!!!!! You've scored " + score + " out of a possible 100!";
     //calls the input styling function
     inputstyle();
 }
