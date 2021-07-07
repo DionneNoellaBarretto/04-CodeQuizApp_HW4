@@ -63,12 +63,13 @@ This homework is graded based on the following criteria:
 ```
 ✅ Application deployed at live URL.
 
-✅ Application loads with no errors.
-
 ✅ Application GitHub URL submitted.
 
 ✅ GitHub repository contains application code.
+
+✅ Application loads with no errors.
 ```
+<img src="./Assets/images/NoErrors.png">
 
 ### Application Quality: 15%
 ```

@@ -9,7 +9,7 @@
 /* formatting for the background of the quiz app */
 
 body {
-    padding: 10;
+    padding: 10 0;
     display: flex;
     flex-direction: column;
 /* ensures the screen size fits your screen view without a scroll to the left/right/  */
@@ -110,7 +110,7 @@ p {
 
 .timer {
     padding: 3px;
-    margin: 2;
+    margin: 2 0;
     text-align: right;
     /* if any lesser then the question will overflow into the timer block */
     height: 45px;
@@ -154,7 +154,7 @@ p {
 .btn {
     background-image: linear-gradient(to top, rgb(248, 233, 233),rgb(247, 247, 207), rgb(186, 227, 243),rgb(218, 248, 218));
     border: 2px dotted rgb(68, 2, 112);
-    padding: 5px, 10px;
+    padding: 5 10;
     color: rgb(48, 47, 47);
     justify-content: center;
     cursor: pointer;
@@ -236,7 +236,7 @@ p {
     width: 150px;
     height: 90px;
     margin: 0 30px;
-    flex-wrap: row;
+    flex-wrap: wrap;
     border-radius: 60%;
     background-image: linear-gradient(to left, rgb(248, 161, 161),rgb(248, 248, 172), rgb(186, 186, 243),rgb(192, 248, 192));
 }
@@ -259,7 +259,7 @@ p {
 
 .highscores {
     padding: 10px 30px;
-    margin: 10;
+    margin: 10 0;
     height: 40px;
     position: fixed;
     bottom: 0;
@@ -288,7 +288,7 @@ input:invalid {
     /* when valid its a shade of green */
   input:valid {
     border: 2px solid rgb(39, 117, 8);
-    background-image: linear-gradient(to left, rgb(141, 236, 141)rgb(124, 206, 113));
+    background-image: linear-gradient(to left, rgb(141, 236, 141),rgb(124, 206, 113));
   }
 
 
@@ -319,7 +319,7 @@ margin-top: 3px;
 
 #correctAns,#leaderboard,#leaderboard button, #leaderboard h1,#tryAgain, #clear, #incorrectAns, #qn,#HighScorers, #viewscores, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
     font-size: 1.1rem;
-    flex-wrap: column;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
     flex-direction: column;
@@ -379,7 +379,7 @@ p {
 }
 #correctAns,#tryAgain,#leaderboard, #leaderboard h1, #clear, #incorrectAns, #qn, #viewscores,#HighScorers, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
     font-size: 0.9rem;
-    flex-wrap: column;
+    flex-wrap: wrap;
     text-align: center;
     height: 18px;
     justify-content: center;

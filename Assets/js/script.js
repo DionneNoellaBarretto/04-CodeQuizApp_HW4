@@ -376,7 +376,7 @@ leaderBoardButton.addEventListener('click', function() {
     scores.classList.add('hide');
 //when accessing the leaderboard without playing a game
     showScoresOriginal();
-});
+})
 
 // saved score history listener
 submit.addEventListener('click', function(event) {
