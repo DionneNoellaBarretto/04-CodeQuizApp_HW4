@@ -391,6 +391,7 @@ function addScores(initials, score) {
         score: score
     }
     scoreSaver.push(newScore);
+    //scores being stingified and stored in the local storage as key value pair
     localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
         //enter Anonymous every time input string is empty
 
@@ -398,7 +399,8 @@ function addScores(initials, score) {
 
 //displaying leadeboard scores
 function showScoresHistory() {
-    savedNames = userInitials.value;
+    // this ensures if a space at the start or at the end is entered by the user accidentally, then its not being considered at the time of storing.. 
+    savedNames = userInitials.value.trim();
     addScores(savedNames, score);
     scores.classList.add('hide');
     //unhiding the leaderboard
@@ -415,7 +417,7 @@ function showScoresHistory() {
 }
 
 function showScoresOriginal() {
-    savedNames = userInitials.value;
+    savedNames = userInitials.value.trim();
     scores.classList.add('hide');
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
