@@ -3,7 +3,7 @@ var scores = document.getElementById('score');
 var timeTracking = document.getElementById('timer');
 var playAgain = document.getElementById('tryAgain');
 var allScoresList = document.getElementById('HighScorers');
-var leaderBoardButton = document.getElementById('highscores');
+var leaderBoardButton = document.getElementById('viewscores');
 var currentQnIndex;
 var clearScores = document.getElementById('clear');
 var startButton = document.getElementById('startBtn');
