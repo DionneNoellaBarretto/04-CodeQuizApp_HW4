@@ -411,6 +411,7 @@ function showScoresHistory() {
         newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }
+    
 }
 
 function showScoresOriginal() {
