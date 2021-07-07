@@ -19,9 +19,10 @@
 <br>
 <!-- header like an about me  -->
 <h1 class="heading" id="title">JavaScript Fundamentals Timed Quiz</h1>
-    <!-- a way to go back to the home page -->
-    <a href="./index.html" class="hide" id="home">Go Back Home</a>
+
 <body>
+        <!-- a way to go back to the home page -->
+        <a href="./index.html" class="hide" id="home">Go Back Home</a>
     <section class="gamestats">
         <div id="correctAns" class="hide">Correct Answer!</div>
         <div id="incorrectAns" class="hide">Incorrect Answer!</div>
@@ -57,9 +58,11 @@
         <div class="highscores"> <button class="btn" id="viewscores">Leaderboard!</button> </div>
          <!-- 2 classes are used here for this div section -->
         <div class="score hide" id="score">
+            <!-- empty placeholder for userScore prompt to be placed -->
             <h1 id="userScore"></h1>
              <!-- opting for a form element incase i choose to add more stuff to capture down the road.. could have just been a plain input field -->
-            <form action=" " id="form">
+            <!-- https://www.w3schools.com/tags/att_form_action.asp form action cannot be an empty string -->
+             <form action="example.html" id="form">
                 <!-- title provides examples upon hover -->
                 <input type="text" placeholder="Enter your Name or identifiable Initials" title="For Example: a, abc, 123, abc123, abc 123 etc" autofocus name="data" required id="initials" pattern="[a-zA-Z0-9]+">
                 <button id="submit">Submit</button>

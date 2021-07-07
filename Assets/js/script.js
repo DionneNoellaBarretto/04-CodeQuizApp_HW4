@@ -236,7 +236,7 @@ function timer() {
         document.getElementById('timer').textContent = 'Time Remaining : ' + timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
-            endQuiz()
+            endQuiz();
         }
         timeLeft--;
     }, 1000);
@@ -279,28 +279,28 @@ function showQn(currentQnObject) {
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
         selectAns(currentQnObject.options[0].correct);
-    })
-    var ansbtn = document.createElement('ansbtn');
+    });
+    ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQnObject.options[1].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
         selectAns(currentQnObject.options[1].correct);
-    })
-    var ansbtn = document.createElement('ansbtn');
+    });
+    ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQnObject.options[2].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
         selectAns(currentQnObject.options[2].correct);
-    })
-    var ansbtn = document.createElement('ansbtn');
+    });
+    ansbtn = document.createElement('ansbtn');
     ansbtn.textContent = currentQnObject.options[3].text;
     ansbtn.classList.add('btn', 'ans');
     document.getElementById('ans-buttons').appendChild(ansbtn);
     ansbtn.addEventListener('click', function() {
         selectAns(currentQnObject.options[3].correct);
-    })
+    });
 }
 
 
@@ -338,7 +338,7 @@ function endQuiz() {
     // console.log(sec);
     //console.log(score);
     timeLeft = 0;
-    timeTracking.classList.add('hide')
+    timeTracking.classList.add('hide');
     correctAnsPrompt.classList.add('hide');
     incorrectAnsPrompt.classList.add('hide');
     qnContainerEl.classList.add('hide');
@@ -355,11 +355,11 @@ function endQuiz() {
 // "Play Again" listener to call the restart quiz function whihc inturn calls the start quiz function
 playAgain.addEventListener('click', function() {
     restartQuiz();
-})
+});
 
 // function to restart quiz with a 100 second initialized (reset) timer
 function restartQuiz() {
-    timeTracking.classList.remove('hide')
+    timeTracking.classList.remove('hide');
     timeLeft = 100;
     score = 0;
     leaderboard.classList.add('hide');
@@ -368,7 +368,7 @@ function restartQuiz() {
 
 // listener for leaderboard button being clicked to display on scores history section and hide everything else
 leaderBoardButton.addEventListener('click', function() {
-    timeTracking.classList.add('hide')
+    timeTracking.classList.add('hide');
     title.classList.add('hide');
     startButton.classList.add('hide');
     description.classList.add('hide');
@@ -383,11 +383,11 @@ submit.addEventListener('click', function(event) {
     //preventing an unnecessary browser refresh
     event.preventDefault();
     showScoresHistory();
-})
+});
 
  //sets the input field length in the initials form to be as large as the placeholder text length (http://jsfiddle.net/KU5kN/)
  function inputstyle(){
-for(i=0; i<input.length; i++){
+for(var i=0; i<input.length; i++){
     input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
 }
 }
@@ -397,7 +397,7 @@ function addScores(initials, score) {
     var newScore = {
         initials: initials,
         score: score
-    }
+    };
     scoreSaver.push(newScore);
     //scores being stringified and stored in the local storage as key value pair
     localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
@@ -418,7 +418,7 @@ function showScoresHistory() {
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
     var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));
-    for (i = 0; i < displayScores.length; i++) {
+    for (var i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
         newLeader.append(document.createTextNode(`${displayScores[i].initials} -----> ${displayScores[i].score}`));
@@ -434,7 +434,7 @@ function showScoresOriginal() {
         //Remove all list item children from all scores list
     allScoresList.innerHTML = "";
     var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));
-    for (i = 0; i < displayScores.length; i++) {
+    for (var i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
         newLeader.append(document.createTextNode(`${displayScores[i].initials} -----> ${displayScores[i].score}`));

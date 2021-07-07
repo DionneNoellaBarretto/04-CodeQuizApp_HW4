@@ -47,6 +47,7 @@ Recommended
 <img src="./Assets/images/ValidInputIndication(recommended).png">
 Not Recommended:
 <img src="./Assets/images/InvalidIndicatorforEmptyInputField(not-recommended).png">
+<img src="./Assets/images/EmptyNameAlert.png">
 
 ## Grading Requirements
 
