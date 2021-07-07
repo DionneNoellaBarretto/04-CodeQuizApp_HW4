@@ -32,7 +32,9 @@ p {
     font-size: 25px;
     margin-top: 5px;
 }
-/* class &id  selectors */
+
+
+/* class & id  selectors */
 /* formatting the static header banner up top */
 
 .heading {
@@ -99,16 +101,6 @@ p {
     margin: 0 16px;
     border-radius: 40%;
     background-image: linear-gradient(to left, rgb(224, 148, 247),rgb(187, 187, 83), rgb(186, 186, 243),rgb(135, 243, 120));
-}
-
-.highscores {
-    padding: 10px 30px;
-    margin: 10;
-    height: 40px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-family: 'Princess Sofia', cursive;
 }
 
 /* button hover highlighting */
@@ -237,6 +229,18 @@ p {
     height: 100px;
 }
 
+/* leaderboard button formatting */
+#leaderboard button {
+    justify-content: center;
+    font-size: 18px;
+    width: 150px;
+    height: 90px;
+    margin: 0 30px;
+    flex-wrap: row;
+    border-radius: 60%;
+    background-image: linear-gradient(to left, rgb(248, 161, 161),rgb(248, 248, 172), rgb(186, 186, 243),rgb(192, 248, 192));
+}
+
 #leaderboard {
     text-align: center;
     justify-content: center;
@@ -253,15 +257,14 @@ p {
     justify-content: center;
 }
 
-#leaderboard button {
-    justify-content: center;
-    font-size: 18px;
-    width: 150px;
-    height: 90px;
-    margin: 0 30px;
-    flex-wrap: row;
-    border-radius: 60%;
-    background-image: linear-gradient(to left, rgb(248, 161, 161),rgb(248, 248, 172), rgb(186, 186, 243),rgb(192, 248, 192));
+.highscores {
+    padding: 10px 30px;
+    margin: 10;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-family: 'Princess Sofia', cursive;
 }
 
 #HighScorers {
@@ -288,6 +291,7 @@ input:invalid {
     background-image: linear-gradient(to left, rgb(141, 236, 141)rgb(124, 206, 113));
   }
 
+
 /* Media Queries for Resonsive UI */
 /* Tablets  responsive ui */
 @media screen and (max-width: 992px) {
@@ -313,7 +317,7 @@ margin-top: 3px;
     -webkit-text-fill-color: transparent;
 }
 
-#correctAns,#leaderboard,#leaderboard button, #leaderboard h1,#tryAgain, #clear, #incorrectAns, #qn,#HighScorers, #viewscores, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .btn, .btn text, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
+#correctAns,#leaderboard,#leaderboard button, #leaderboard h1,#tryAgain, #clear, #incorrectAns, #qn,#HighScorers, #viewscores, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
     font-size: 1.1rem;
     flex-wrap: column;
     text-align: center;
@@ -322,15 +326,20 @@ margin-top: 3px;
     height: 22px;
 }
 
+#tryAgain, #clear{
+    flex-direction: row;
+}
+
 .btn{
     background-image: linear-gradient(to bottom left, rgb(248, 198, 198),rgb(192, 250, 184), rgb(194, 186, 243),rgb(230, 241, 167));
  }
+
 
 #ans-buttons {
     font-size: 0.9rem;
 }
 .btn-grid {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(2, auto);
     gap: 7px;
 }
 .score h1 {
@@ -368,7 +377,7 @@ p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#correctAns,#tryAgain,#leaderboard, #leaderboard h1, #clear, #incorrectAns, #qn, #viewscores,#HighScorers, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .btn, .btn text, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
+#correctAns,#tryAgain,#leaderboard, #leaderboard h1, #clear, #incorrectAns, #qn, #viewscores,#HighScorers, #qn section, .timer, .timer h1,.finalstats, .gamestats, .controls, .startBtn, .ans, .qn-ans-section, .hide, .score form, .score {
     font-size: 0.9rem;
     flex-wrap: column;
     text-align: center;
