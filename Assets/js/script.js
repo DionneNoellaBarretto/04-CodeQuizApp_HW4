@@ -420,8 +420,7 @@ function showScoresHistory() {
         newLeader.setAttribute("class", "listOfHighScorers");
         newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
         allScoresList.append(newLeader);
-    }
-    
+    }   
 }
 
 function showScoresOriginal() {
@@ -436,6 +435,9 @@ function showScoresOriginal() {
         newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }
+    if (allScoresList.innerHTML = ""){
+        alert("No Scores have been recorded. Click OK and choose 'Play Again' or 'Go Back Home' to start a game");
+    } 
 }
 
 // browser local storage for scores is cleared
