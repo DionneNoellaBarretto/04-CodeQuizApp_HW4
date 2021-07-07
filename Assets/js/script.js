@@ -1,11 +1,9 @@
 /*pending functionality would like to implement
-1) append a blank score a name of anonymous if no input is provided by user
-2) reorder leaderboard scores like a bubble sort by
-3) shuffle the answer options as well
-4) home button (done)
+1) reorder leaderboard scores like a bubble sort by
+2) shuffle the answer options as well
 */
 
-// defining all variables
+// defining all game variables
 var goHome = document.getElementById('home');
 var title = document.getElementById('title');
 var scores = document.getElementById('score');
@@ -376,6 +374,7 @@ leaderBoardButton.addEventListener('click', function() {
     description.classList.add('hide');
     qnContainerEl.classList.add('hide');
     scores.classList.add('hide');
+//when accessing the leaderboard without playing a game
     showScoresOriginal();
 });
 
@@ -393,7 +392,7 @@ for(i=0; i<input.length; i++){
 }
 }
 
-//scoring logic
+//scoring logic using browser storage
 function addScores(initials, score) {
     var newScore = {
         initials: initials,
@@ -402,11 +401,15 @@ function addScores(initials, score) {
     scoreSaver.push(newScore);
     //scores being stringified and stored in the local storage as key value pair
     localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
-    
+
 }
 
-//displaying leadeboard scores
+//displaying leadeboard scores using browser storage when the user plays the game and enters an input
 function showScoresHistory() {
+    //ensures user enters atleast 1 character for recording their score
+    if (userInitials.value.trim().length === 0) {
+        alert("Please enter a character in the red highlighted prompt below to have your score identified as your name or initial(s)! Click OK to proceed.");
+    } else {
     // this ensures if a space at the start or at the end is entered by the user accidentally, then its not being considered at the time of storing.. 
     savedNames = userInitials.value.trim();
     addScores(savedNames, score);
@@ -418,26 +421,27 @@ function showScoresHistory() {
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
-        newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
+        newLeader.append(document.createTextNode(`${displayScores[i].initials} -----> ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }   
-}
 
+}}
+//using browser storage showing the scores to user who clicked leaderboard instead of playing the game
 function showScoresOriginal() {
     savedNames = userInitials.value.trim();
     scores.classList.add('hide');
     leaderboard.classList.remove('hide');
+        //Remove all list item children from all scores list
     allScoresList.innerHTML = "";
     var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));
     for (i = 0; i < displayScores.length; i++) {
         var newLeader = document.createElement("li");
         newLeader.setAttribute("class", "listOfHighScorers");
-        newLeader.append(document.createTextNode(`${displayScores[i].initials} ----- ${displayScores[i].score}`));
+        newLeader.append(document.createTextNode(`${displayScores[i].initials} -----> ${displayScores[i].score}`));
         allScoresList.append(newLeader);
     }
-    if (allScoresList.innerHTML = ""){
-        alert("No Scores have been recorded. Click OK and choose 'Play Again' or 'Go Back Home' to start a game");
-    } 
+
+
 }
 
 // browser local storage for scores is cleared upon browser hard refresh or a start click if you go back home, if not done the score entries will persist resulting in the page getting filled up with previous records
@@ -450,4 +454,4 @@ function clearScoresHistory() {
     allScoresList.innerHTML = "";
 }
 // clear score history listener
-clearScores.addEventListener('click', clearScoresHistory)
+clearScores.addEventListener('click', clearScoresHistory);
