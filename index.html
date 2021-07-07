@@ -19,7 +19,8 @@
 <br>
 <!-- header like an about me  -->
 <h1 class="heading" id="title">JavaScript Fundamentals Timed Quiz</h1>
-
+    <!-- a way to go back to the home page -->
+    <a href="./index.html" class="hide" id="home">Go Back Home</a>
 <body>
     <section class="gamestats">
         <div id="correctAns" class="hide">Correct Answer!</div>
@@ -42,7 +43,7 @@
             <div id="ans-buttons" class="btn-grid"></div>
         </div>
         <!-- this span styles the "25 questions ", "-10 second " and '75 second' texts in the following sentences -->
-        <p id="description"> This <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 question </span> quiz is a quick JavaScript basics knowledge check.
+        <p id="gameDescription"> This <span style="text-decoration-line: underline; text-decoration-style: dashed"> 25 question </span> quiz is a quick JavaScript basics knowledge check.
             <br>
             <br> Each wrong answers results in a penalty of <span style="color: rgb(206, 32, 32); text-decoration:underline; text-decoration-style: dotted"> 5 seconds </span> from the 'Time Remaining '! <br>
             <br> Click <span style="text-decoration: underline">"Start"</span> below to begin the quiz and answer questions until a <strong>'100 second'</strong> timer runs out! </p>
@@ -51,17 +52,21 @@
     </main>
     <br>
     <br>
-    <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
+               <!-- hidden sections revelead only when leaderboard for viewing high scores or when the game's over and player wants to log their score to the leaderboard -->
     <section class="finalstats">
         <div class="highscores"> <button class="btn" id="viewscores">Leaderboard!</button> </div>
          <!-- 2 classes are used here for this div section -->
         <div class="score hide" id="score">
             <h1 id="userScore"></h1>
-             <!-- enforcing a minimum of 3 letters for the name/initial input by the user/player (Ref: https://code.tutsplus.com/tutorials/form-input-validation-using-only-html5-and-regex--cms-33095 / https://stackoverflow.com/questions/17899107/how-to-validate-a-letter-and-whitespace-only-input-via-javascript-regular-expres) -->
-            <form action=" " id="form"><input type="text" placeholder="Enter your Name or Initials" autofocus name="data" required id="initials" pattern="[a-zA-Z0-9]+"><button id="submit">Submit</button></form>
-        </div>
+             <!-- opting for a form element incase i choose to add more stuff to capture down the road.. could have just been a plain input field -->
+            <form action=" " id="form">
+                <input type="text" placeholder="Enter your Name or Initials" autofocus name="data" required id="initials" pattern="[a-zA-Z0-9]+">
+                <button id="submit">Submit</button>
+            </form>
+         </div>
         <div class="container hide" id="leaderboard">
             <h1>Top Scorers</h1>
+            <!-- ordered list of scorers -->
             <ol id="HighScorers">            </ol>
             <button class="btn" id="clear">Clear</button>
             <button class="btn" id="tryAgain">Play Again</button>

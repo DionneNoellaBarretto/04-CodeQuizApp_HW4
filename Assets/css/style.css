@@ -1,5 +1,4 @@
 /* universal selector */
-    
 *,
 *::before,
 *::after {
@@ -13,8 +12,11 @@ body {
     padding: 10;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100vh;
+/* ensures the screen size fits your screen view without a scroll to the left/right/  */
+    width: 99%;
+    /* ensures the background is stretched out to the height of the screen  */
+    height: 110vh;
+    /* centers the body text */
     align-items: center;
     justify-content: center;
     /* incase a browser doesnt support gradients */
@@ -25,7 +27,7 @@ body {
 /* formatting the text of potrtion of the paragraph element */
 p {
     color: rgb(14, 13, 13);
-    padding-top: 30px;
+    padding-top: 21px;
     text-align: center;
     font-size: 25px;
     margin-top: 5px;
@@ -34,10 +36,10 @@ p {
 /* formatting the static header banner up top */
 
 .heading {
-    padding: 2px 0px 0px 5px;
+    padding: 3px 0px 0px 3px;
     color: rgb(54, 53, 53);
     align-content: center;
-    font-size: 38px;
+    font-size: 40px;
     justify-content: center;
     /* overwriting the font family to use another google font from stylesheet*/
     background: -webkit-linear-gradient(rgb(28, 3, 250), rgb(7, 155, 130));
@@ -50,7 +52,7 @@ p {
 }
 /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
 #correctAns {
-    color: rgb(25, 180, 25);
+    color: rgb(27, 141, 27);
     font-size: 40px;
     align-content: center;
     font-family: 'Yomogi', cursive;
@@ -70,11 +72,12 @@ p {
 
 .gamestats, .finalstats {
     display: flex;
+    /* row placement */
     flex-direction: row;
-    padding: 10px 5px;
+    padding: 8px 3px;
     width: 40%;
     height: auto;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #viewscores {
@@ -87,8 +90,19 @@ p {
     font-weight: bold;
 }
 
+.home {
+    font-size: 22px;
+    color: rgb(216, 104, 216);
+    border: dashed 2px rgb(235, 69, 4);
+    font-weight: bold;
+    justify-content: center;
+    margin: 0 16px;
+    border-radius: 40%;
+    background-image: linear-gradient(to left, rgb(224, 148, 247),rgb(187, 187, 83), rgb(186, 186, 243),rgb(135, 243, 120));
+}
+
 .highscores {
-    padding: 30px;
+    padding: 10px 30px;
     margin: 10;
     height: 40px;
     position: fixed;
@@ -97,8 +111,9 @@ p {
     font-family: 'Princess Sofia', cursive;
 }
 
+/* button hover highlighting */
 #viewscores:hover {
-    border-color: rgb(86, 7, 122);
+    border: 1px dashed rgb(86, 7, 122);
 }
 
 .timer {
@@ -181,7 +196,12 @@ p {
     font-weight: bold;
     padding: 10px 20px;
     background-image: linear-gradient(to bottom left, rgb(248, 161, 161),rgb(248, 248, 172), rgb(186, 186, 243),rgb(192, 248, 192));
-    border-radius: 200%;
+    border-radius: 90%;
+    cursor: pointer;
+}
+
+.startBtn:hover{
+    border: 1px dashed rgb(190, 100, 231);
 }
 
 .controls {
@@ -190,6 +210,7 @@ p {
     align-items: center;
 }
 
+/* by default hides all elements with a class 'hide' */
 .hide {
     display: none;
 }
@@ -201,7 +222,7 @@ p {
 .score h1 {
     font-size: 30px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 9px;
     background: -webkit-linear-gradient(rgb(9, 48, 175), rgb(78, 21, 3));
     /* incase browser doesnt support webkit then use background clip as backup  */
     background-clip: inherit;
@@ -248,8 +269,8 @@ p {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    margin: 15px;
-    padding-bottom: 30px;
+    margin: 10px;
+    padding-bottom: 18px;
     justify-content: center;
 }
 
@@ -259,7 +280,7 @@ input:invalid {
   }
   /* when invalid its a shade of red */
   input:invalid:required {
-    background-image: linear-gradient(to right, rgb(245, 180, 191), rgb(219, 101, 126));
+    background-image: linear-gradient(to right, rgb(245, 180, 191), rgb(245, 150, 171));
   }
     /* when valid its a shade of green */
   input:valid {
@@ -296,7 +317,7 @@ margin-top: 3px;
     font-size: 1.1rem;
     flex-wrap: column;
     text-align: center;
-    justify-content:center;
+    justify-content: center;
     flex-direction: column;
     height: 22px;
 }
@@ -352,7 +373,7 @@ p {
     flex-wrap: column;
     text-align: center;
     height: 18px;
-    justify-content:center;
+    justify-content: center;
     flex-direction: column;
 }
  .btn{

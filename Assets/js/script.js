@@ -2,9 +2,11 @@
 1) append a blank score a name of anonymous if no input is provided by user
 2) reorder leaderboard scores like a bubble sort by
 3) shuffle the answer options as well
+4) home button (done)
 */
 
 // defining all variables
+var goHome = document.getElementById('home');
 var title = document.getElementById('title');
 var scores = document.getElementById('score');
 var timeTracking = document.getElementById('timer');
@@ -14,7 +16,7 @@ var leaderBoardButton = document.getElementById('viewscores');
 var currentQnIndex;
 var clearScores = document.getElementById('clear');
 var startButton = document.getElementById('startBtn');
-var description = document.getElementById('description');
+var description = document.getElementById('gameDescription');
 var qnContainerEl = document.getElementById('qn-section');
 var qnEl = document.getElementById('qn');
 var ansButtonsEl = document.getElementById('ans-buttons');
@@ -254,6 +256,7 @@ function startQuiz() {
     //unhiding the timer and the qncontainerelement
     qnContainerEl.classList.remove('hide');
     timeTracking.classList.remove('hide');
+    goHome.classList.remove('hide');
     initializeQuestion(shuffled);
 }
 
@@ -397,9 +400,9 @@ function addScores(initials, score) {
         score: score
     }
     scoreSaver.push(newScore);
-    //scores being stingified and stored in the local storage as key value pair
+    //scores being stringified and stored in the local storage as key value pair
     localStorage.setItem('scoreSaver', JSON.stringify(scoreSaver));
-        //enter Anonymous every time input string is empty
+    
 }
 
 //displaying leadeboard scores
