@@ -9,7 +9,7 @@
 /* formatting for the background of the quiz app */
 
 body {
-    padding: 10 0;
+    padding: 10px 0px;
     display: flex;
     flex-direction: column;
 /* ensures the screen size fits your screen view without a scroll to the left/right/  */
@@ -110,7 +110,7 @@ p {
 
 .timer {
     padding: 3px;
-    margin: 2 0;
+    margin: 2px 0px;
     text-align: right;
     /* if any lesser then the question will overflow into the timer block */
     height: 45px;
@@ -154,7 +154,7 @@ p {
 .btn {
     background-image: linear-gradient(to top, rgb(248, 233, 233),rgb(247, 247, 207), rgb(186, 227, 243),rgb(218, 248, 218));
     border: 2px dotted rgb(68, 2, 112);
-    padding: 5 10;
+    padding: 5px 10px;
     color: rgb(48, 47, 47);
     justify-content: center;
     cursor: pointer;
@@ -259,7 +259,7 @@ p {
 
 .highscores {
     padding: 10px 30px;
-    margin: 10 0;
+    margin: 10px 0px;
     height: 40px;
     position: fixed;
     bottom: 0;
