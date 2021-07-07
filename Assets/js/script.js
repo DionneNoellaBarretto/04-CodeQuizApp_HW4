@@ -1,3 +1,9 @@
+/*pending functionality would like to implement
+1) append a blank score a name of anonymous if no input is provided by user
+2) reorder leaderboard scores like a bubble sort by
+3) shuffle the answer options as well
+*/
+
 // defining all variables
 var title = document.getElementById('title');
 var scores = document.getElementById('score');
