@@ -1,10 +1,11 @@
 /*pending functionality would like to implement
 1) reorder leaderboard scores like a bubble sort by
 2) shuffle the answer options as well
+3) qn # progress bar
 */
 
 // defining all game variables
-var numberOfQns = document.getElementById('numberOfQns');
+// var numberOfQns = document.getElementById('numberOfQns');
 var allQns = document.getElementById('allQns');
 var goHome = document.getElementById('home');
 var title = document.getElementById('title');
@@ -257,7 +258,7 @@ function startQuiz() {
     qnContainerEl.classList.remove('hide');
     timeTracking.classList.remove('hide');
     goHome.classList.remove('hide');
-    numberOfQns.classList.remove('hide');
+    // numberOfQns.classList.remove('hide');
     initializeQuestion(shuffled);
 
 }
@@ -329,18 +330,18 @@ function selectAns(isCorrect) {
     currentQnIndex++;
     //console.log(currentQnIndex);
     //lists the qn # you are on from the full set of 25 in this case 
-numberOfQns.innerText =`Completed # of Questions: ${currentQnIndex} of ${qnArray.length}`;
+// numberOfQns.innerText =`Question #: ${currentQnIndex} of ${qnArray.length}`;
 
       // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
-
+        // numberOfQns.classList.add('hide');
         alert("Game Over! You have completed all 25 questions from this qn bank! Click OK to add your score of " + score + " out of a possible 100, to the leaderboard!");
         endQuiz();
+
     } else {
         showQn(shuffled[currentQnIndex]);
     }
     
-
 }
 
 // function for when the quiz ends what to hide/display
@@ -357,7 +358,7 @@ function endQuiz() {
     leaderBoardButton.classList.remove('hide');
     userInitials.classList.remove('hide');
     userScore.classList.remove('hide');
-    numberOfQns.classList.add('hide');
+    // numberOfQns.classList.add('hide');
     //this is all that the user should be shown 
     userScore.textContent = "Time Up - Game Over !!!!!!! You've scored " + score + " out of a possible 100!";
     //calls the input styling function
@@ -366,7 +367,10 @@ function endQuiz() {
 
 // "Play Again" listener to call the restart quiz function whihc inturn calls the start quiz function
 playAgain.addEventListener('click', function() {
+       //resets qn counter
+    //    numberOfQns.innerText =`Question #: ${currentQnIndex} of ${qnArray.length}`;
     restartQuiz();
+ 
 });
 
 // function to restart quiz with a 100 second initialized (reset) timer
@@ -386,6 +390,7 @@ leaderBoardButton.addEventListener('click', function() {
     description.classList.add('hide');
     qnContainerEl.classList.add('hide');
     scores.classList.add('hide');
+    // numberOfQns.classList.add('hide');
 //when accessing the leaderboard without playing a game
     showScoresOriginal();
 })
@@ -426,6 +431,7 @@ function showScoresHistory() {
     savedNames = userInitials.value.trim();
     addScores(savedNames, score);
     scores.classList.add('hide');
+    // numberOfQns.classList.add('hide');
     //unhiding the leaderboard
     leaderboard.classList.remove('hide');
     allScoresList.innerHTML = "";
@@ -443,6 +449,7 @@ function showScoresOriginal() {
     savedNames = userInitials.value.trim();
     scores.classList.add('hide');
     leaderboard.classList.remove('hide');
+    // numberOfQns.classList.add('hide');
         //Remove all list item children from all scores list
     allScoresList.innerHTML = "";
     var displayScores = JSON.parse(localStorage.getItem("scoreSaver"));

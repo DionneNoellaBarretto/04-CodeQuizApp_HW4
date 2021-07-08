@@ -35,8 +35,8 @@ p {
 
 
 /* class & id  selectors */
-/* formatting the static header banner up top */
-#numberOfQns{
+
+/* qn progress bar #numberOfQns{
     width: 20rem;
     height: 2rem;
     border:0.2rem solid rgb(11, 43, 223);
@@ -44,13 +44,8 @@ p {
     border-radius: 50px;
     text-align: center;
     overflow: hidden;
-}
-
-#allQns{
-    background: rgb(11, 43, 223);
-    height: 100%;
-    width: 0%;
-}
+} */
+/* formatting the static header banner up top */
 
 .heading {
     padding: 3px 0px 0px 3px;
@@ -367,27 +362,27 @@ margin-top: 3px;
     -webkit-text-fill-color: transparent;
     font-family: cursive;
 }
-#numberOfQns{
+/* #numberOfQns{
     width: 20rem;
     height: 1.5rem;
     border:0.15rem solid rgb(11, 43, 223);
     margin-top: 1rem;
     border-radius: 50px;
     overflow: hidden;
-}
+} */
 #correctAns{
     color: rgb(9, 90, 9);}
 }
 
 /* Cellphones responsive ui */
 @media screen and (max-width: 768px) {
-    #numberOfQns{
+    /* #numberOfQns{
         width: 20rem;
         height: 0.9rem;
         border:0.1rem solid rgb(11, 43, 223);
         border-radius: 50px;
         overflow: hidden;
-    }
+    } */
 
 body {
     height: 100vh;
