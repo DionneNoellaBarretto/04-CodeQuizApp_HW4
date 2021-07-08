@@ -33,6 +33,8 @@ QuestionScreen on Desktop/Laptop Screen
 <img src="./Assets/images/DesktopScreen.png">
 QuestionScreen on Tablet Screen
 <img src="./Assets/images/TabletScreen.png">
+An indicator for the questions completed
+<img src="./Assets/images/Qnnumber.png">
 QuestionScreen on Mobile Screen
 <img src="./Assets/images/MobileScreen.png">
 Correct/Incorrect Answer Notification

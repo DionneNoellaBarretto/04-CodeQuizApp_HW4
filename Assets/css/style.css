@@ -69,7 +69,7 @@ p {
 }
 /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
 #correctAns {
-    color: rgb(31, 177, 31);
+    color: rgb(41, 146, 41);
     font-size: 40px;
     align-content: center;
     font-family: 'Yomogi', cursive;
