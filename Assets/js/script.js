@@ -4,6 +4,8 @@
 */
 
 // defining all game variables
+var numberOfQns = document.getElementById('numberOfQns');
+var allQns = document.getElementById('allQns');
 var goHome = document.getElementById('home');
 var title = document.getElementById('title');
 var scores = document.getElementById('score');
@@ -251,16 +253,19 @@ function startQuiz() {
     // calling the shuffleArray function to randomize the qns defined in the qnArray var uptop
     shuffled = shuffleArray(qnArray);
     currentQnIndex = 0;
-    //unhiding the timer and the qncontainerelement
+    //unhiding the elements
     qnContainerEl.classList.remove('hide');
     timeTracking.classList.remove('hide');
     goHome.classList.remove('hide');
+    numberOfQns.classList.remove('hide');
     initializeQuestion(shuffled);
+
 }
 
 // function to randomize/shuffle question/answer list
 function initializeQuestion(shuffledQns) {
     showQn(shuffledQns[currentQnIndex]);
+
 }
 
 // function to clear out the answers from the previous qn presented
@@ -323,13 +328,19 @@ function selectAns(isCorrect) {
     // once a n is answered increase the counter of the currentQnIndexer to keep track of how many questions have been answered..
     currentQnIndex++;
     //console.log(currentQnIndex);
-    // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
+    //lists the qn # you are on from the full set of 25 in this case 
+numberOfQns.innerText =`Completed # of Questions: ${currentQnIndex} of ${qnArray.length}`;
+
+      // entering an alert prompt logic to let the user know they've finished all the qns from the bank (likely before time) 
     if (currentQnIndex == shuffled.length) {
+
         alert("Game Over! You have completed all 25 questions from this qn bank! Click OK to add your score of " + score + " out of a possible 100, to the leaderboard!");
         endQuiz();
     } else {
         showQn(shuffled[currentQnIndex]);
     }
+    
+
 }
 
 // function for when the quiz ends what to hide/display
@@ -346,6 +357,7 @@ function endQuiz() {
     leaderBoardButton.classList.remove('hide');
     userInitials.classList.remove('hide');
     userScore.classList.remove('hide');
+    numberOfQns.classList.add('hide');
     //this is all that the user should be shown 
     userScore.textContent = "Time Up - Game Over !!!!!!! You've scored " + score + " out of a possible 100!";
     //calls the input styling function
@@ -404,7 +416,7 @@ function addScores(initials, score) {
 
 }
 
-//displaying leadeboard scores using browser storage when the user plays the game and enters an input
+//displaying leaderboard scores using browser storage when the user plays the game and enters an input
 function showScoresHistory() {
     //ensures user enters atleast 1 character for recording their score
     if (userInitials.value.trim().length === 0) {

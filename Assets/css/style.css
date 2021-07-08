@@ -36,6 +36,21 @@ p {
 
 /* class & id  selectors */
 /* formatting the static header banner up top */
+#numberOfQns{
+    width: 20rem;
+    height: 2rem;
+    border:0.2rem solid rgb(11, 43, 223);
+    margin-top: 2rem;
+    border-radius: 50px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#allQns{
+    background: rgb(11, 43, 223);
+    height: 100%;
+    width: 0%;
+}
 
 .heading {
     padding: 3px 0px 0px 3px;
@@ -54,7 +69,7 @@ p {
 }
 /* formatting for the correct vs incorrect answer prompt when qn is answered by user */
 #correctAns {
-    color: rgb(27, 141, 27);
+    color: rgb(31, 177, 31);
     font-size: 40px;
     align-content: center;
     font-family: 'Yomogi', cursive;
@@ -335,7 +350,7 @@ margin-top: 3px;
  }
 
 
-#ans-buttons {
+#ans-buttons, .numberOfQn {
     font-size: 0.9rem;
 }
 .btn-grid {
@@ -352,10 +367,27 @@ margin-top: 3px;
     -webkit-text-fill-color: transparent;
     font-family: cursive;
 }
+#numberOfQns{
+    width: 20rem;
+    height: 1.5rem;
+    border:0.15rem solid rgb(11, 43, 223);
+    margin-top: 1rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
 }
 
 /* Cellphones responsive ui */
 @media screen and (max-width: 768px) {
+    #numberOfQns{
+        width: 20rem;
+        height: 0.7rem;
+        border:0.1rem solid rgb(11, 43, 223);
+        border-radius: 50px;
+        overflow: hidden;
+    }
+
 body {
     height: 100vh;
     /* incase a browser doesnt support gradients */
@@ -400,7 +432,7 @@ p {
     font-family: 'Otomanopee One', sans-serif;
 }
 
-#ans-buttons {
+#ans-buttons, .numberOfQn {
     font-size: 0.7rem;
 }
 
